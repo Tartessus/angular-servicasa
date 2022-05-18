@@ -1,0 +1,29 @@
+
+  <div id="encabezado" class="container-fluid">
+    <!--Inserto encabezado -->
+    <header class="blog-header col-12 py-1">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-2 pt-1" id="logo" >
+          <picture>
+            <!--Para introducir fotografias en otras resoluciones y poderlo hacer responsive-->
+
+            <!--En vez de insertar varias imagenes mediante source, aplico el responsive por bootstrap -->
+            <img src="assets/logo.jpg"  width="100px;" title="Logo SERVICASA"  class="img-fluid" >
+          </picture>
+        </div>
+        <!--Inserto el Título -->
+        <div id="titulo" class="col-7 text-center">
+          <h1><b>SERVICASA</b></h1>
+        </div>
+      </div>
+    </header>
+  <!--Introduzco el menú de navegación en una barra lateral -->
+    <div id="menu" class="nav-scroller py-1 mb-2">
+      <nav class="nav d-flex justify-content-between">
+        <a class="p-2 text-muted" routerLink=""> INICIO </a>
+        <a class="p-2 text-muted" routerLink="empleados"> EMPLEADO </a>
+        <a class="p-2 text-muted" routerLink="servicios"> SERVICIOS </a>
+        <a class="p-2 text-muted" routerLink="contacto"> CONTACTO </a>
+      </nav>
+    </div>
+  </div>

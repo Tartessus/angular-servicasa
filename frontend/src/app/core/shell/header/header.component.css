@@ -1,0 +1,30 @@
+
+#encabezado{
+	align-self: flex-end;
+	margin-top: 0%;
+    color: rgb(28, 110, 204);
+    text-align: center;
+    background-color: #f5f5f5;
+    border-bottom: .05rem solid #e5e5e5;
+	width: 100%;
+}
+
+header {
+	display: inline-block;
+  border-bottom: .09rem solid #969799;
+}
+
+header #servicasa {
+	text-align: center;
+	background-color: green;
+}
+
+header h1 {
+	float: left;
+}
+
+#menu {
+  margin-left: 2rem;
+  margin-right: 2rem;
+color: rgb(28, 110, 204)
+}

@@ -1,0 +1,13 @@
+footer {
+	align-self: flex-end;
+	padding: 2.5rem ;
+    color: #999;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-top: .05rem solid #e5e5e5;
+	width: 100%;
+	margin-top: 50px;
+  position:absolute;
+  bottom: visible;
+
+}
