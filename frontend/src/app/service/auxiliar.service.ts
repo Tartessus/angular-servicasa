@@ -8,11 +8,21 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuxiliarService {
+  itemsPorPagina: number = environment.itemsPorPagina;
 
+  constructor(private http: HttpClient) { }
 
-  constructor(
-    private http: HttpClient) { }
+  getItemsResponse(respuestaApi: any): number {
+    return respuestaApi.count;
+  }
 
+  getPaginasResponse(respuestaApi: any): number {
+    return Math.ceil(this.getItemsResponse(respuestaApi) / this.itemsPorPagina);
+  }
+
+  getItemsPorPagina(urlEndPoint: string, pagina: number): Observable<any> {
+    return this.http.get<any>(`${urlEndPoint}?page=${pagina}`)
+  }
  /* getItemsResponse(respuestaApi: any): number {
     return respuestaApi.count;
   }

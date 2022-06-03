@@ -28,7 +28,8 @@ const routes: Routes = [ //incluiremos todas las rutas de elementos que haya en 
 },
 
   {
-    path: "not-found" , component: NotFoundComponent,
+    path: "not-found" ,
+    component: NotFoundComponent,
   },
   {
     path: "**" , //cualquier valor que no este indicado

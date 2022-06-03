@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-geriatria',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./geriatria.component.css']
 })
 export class GeriatriaComponent implements OnInit {
-
-  constructor() { }
+  public geriatriaId = '';
+  constructor(activateRoute: ActivatedRoute) {
+this.geriatriaId = activateRoute.snapshot.params['Idgeriatria'];
+  }
 
   ngOnInit(): void {
   }

@@ -12,14 +12,5 @@ import { faCoffee, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons
 
 
 export class AppComponent {
-  faSkype = faSkype;
 
-  faCorreo = faEnvelope;
-
-  faLlamada = faPhone;
-
-  faCoffee = faCoffee;
-
-  title = 'frontend';
-  saludo = 'boli es un coñazo';
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Servicio } from '../../models/servicio';
+import { Tipo } from '../../models/tipo';
 
 @Component({
   selector: 'app-nuevo',
@@ -7,23 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevoComponent implements OnInit {
 
-  public servicio = { nombre: '',
-   precio: '',
+
+ @Input() public serviciosTotal= 0;
+
+ @Input() public servicio: Servicio = {
+   nombre: '',
+   precio: 0 ,
    tipo:0,
    materialPropio: false,
    titulacion: "",
-   anosExperiencia: ""
+   anosExperiencia: 0
   };
 
-  public tipos = [
+  @Input() public tipos: Tipo[] = [
     {id: 0, description: 'Elige Servicio'},
     {id: 1, description: 'Jardineria'},
     {id: 2, description: 'Geriatria'}
   ];
 
+  @Input() public servicios: Servicio[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+public saveServicio() {
+  this.servicios.push({ ...this.servicio});
+  this.serviciosTotal =this.servicios.length;
+}
+
+public deleteContact(contact: Servicio) {
+  this.servicios = this.servicios.filter(c => c.nombre !== contact.nombre);
+  this.serviciosTotal = this.servicios.length;
+}
 
 }

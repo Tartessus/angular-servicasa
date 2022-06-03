@@ -11,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
+
 @NgModule({
   declarations: [
     ShellComponent,
@@ -18,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MainComponent,
     FooterComponent,
     NotFoundComponent,
+
 
   ],
   imports: [
