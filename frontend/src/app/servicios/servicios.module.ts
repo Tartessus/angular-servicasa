@@ -3,26 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { ServiciosRoutingModule } from './servicios-routing.module';
 import { ServiciosComponent } from './servicios/servicios.component';
-import { GeriatriaIdComponent } from './servicios/geriatria/geriatria-id/geriatria-id.component';
-import { GeriatriaComponent } from './servicios/geriatria/geriatria.component';
-import { JardineriaIdComponent } from './servicios/jardineria/jardineria-id/jardineria-id.component';
-import { JardineriaComponent } from './servicios/jardineria/jardineria.component';
 import { FormsModule } from '@angular/forms';
 import { AuxiliarService } from '../service/auxiliar.service';
-import { NuevoComponent } from './servicios/nuevo/nuevo.component';
-import { VerComponent } from './servicios/ver/ver.component';
+import { ServiciosItemComponent } from './servicios-item/servicios-item.component';
+import { GeriatriaComponent } from './geriatria/geriatria.component';
+import { GeriatriaItemComponent } from './geriatria-item/geriatria-item.component';
+import { JardineriaItemComponent } from './jardineria-item/jardineria-item.component';
+import { JardineriaComponent } from './jardineria/jardineria.component';
 
 
 
 @NgModule({
   declarations: [
     ServiciosComponent,
-    JardineriaComponent,
+    ServiciosItemComponent,
     GeriatriaComponent,
-    JardineriaIdComponent,
-    GeriatriaIdComponent,
-    NuevoComponent,
-    VerComponent,
+    GeriatriaItemComponent,
+    JardineriaItemComponent,
+    JardineriaComponent,
 
   ],
   imports: [

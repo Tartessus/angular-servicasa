@@ -1,9 +1,9 @@
 
 
+
 .button {
-  text-align: center;
-    margin-left: 30rem;
-  }
+  margin: 2em;
+}
 
 body{
   text-align: center;
@@ -25,8 +25,4 @@ header{
   margin-right: auto;
   align-self: flex-end;
 
-}
-
-a {
-align-content: center;
 }

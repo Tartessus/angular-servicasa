@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { Empleado } from '../models/empleado';
+import { EmpleadoImpl } from '../models/empleado-impl';
 import { EmpleadoService } from '../service/empleado.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-empleados',
@@ -12,6 +16,7 @@ export class EmpleadosComponent implements OnInit {
   empleados: Empleado[] = [];
   todosEmpleados: Empleado[] = [];
   numPaginas: number = 0;
+  empleadoVerDatos: Empleado = new EmpleadoImpl("","","","","","","",[]);
 
   constructor(
     private empleadoService: EmpleadoService,
@@ -21,6 +26,19 @@ export class EmpleadosComponent implements OnInit {
     this.empleadoService.getEmpleados().subscribe((response) => this.empleados = this.empleadoService.extraerEmpleados(response));
     this.getTodosEmpleados();
   }
+
+  verDatos(empleado: Empleado): void {
+    this.empleadoVerDatos = empleado;
+  }
+
+ /*  onEmpleadoEliminar(empleado: EmpleadoImpl): void {
+    console.log(`He eliminado a ${empleado.nombre}`);
+    this.empleadoService.deleteEmpleado(empleado.id).subscribe(response => {
+      this.router.navigate(['empleados']);
+    this.empleados = this.empleados.filter(p => empleado !== p)
+    location.reload;
+  }
+}*/
 
   getTodosEmpleados(): void {
     this.empleadoService.getEmpleados().subscribe(r => {

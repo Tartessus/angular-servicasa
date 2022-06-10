@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { environment } from 'src/environments/environment';
 import { Empleado } from '../models/empleado';
@@ -32,7 +32,7 @@ export class EmpleadoService {
   }
 
   mapearEmpleados(empleadoApi: any): EmpleadoImpl {
- return new EmpleadoImpl(empleadoApi.nombreCompleto, empleadoApi.ciudad, empleadoApi.dni, empleadoApi.email)
+ return new EmpleadoImpl(empleadoApi.nombreCompleto, empleadoApi.apellido, empleadoApi.dni, empleadoApi.direccion,  empleadoApi.email, empleadoApi.ciudad, empleadoApi.provincia, empleadoApi.servicios)
 
 
   }
@@ -44,5 +44,17 @@ export class EmpleadoService {
   getEmpleadosPagina(pagina: number): Observable<any> {
     return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
   }
+
+  deleteEmpleado(id: string): Observable<Empleado> {
+    return this.http.delete<Empleado>(`${this.urlEndPoint}/${id}`).pipe(
+      catchError((e) => {
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+
 
 }

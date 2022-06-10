@@ -4,53 +4,48 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { environment } from 'src/environments/environment';
-//import { Personaje } from '../models/personaje';
-//import { PersonajeImpl } from '../models/personaje-impl';
+import { Servicio } from '../models/servicio';
+import { ServicioImpl } from '../models/servicio-impl';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonajeService {
- //private host: string = environment.host;
-  //private urlEndPoint: string = `${this.host}people`;
+export class ServicioService {
+ private host: string = environment.host;
+private urlEndPoint: string = `${this.host}servicios`;
 
   constructor(
     private http: HttpClient,
     private auxService: AuxiliarService) { }
 
 
- /* getPersonajes(): Observable<any> {
+  getServicios(): Observable<any> {
     return this.http.get<any>(this.urlEndPoint);
   }
 
-  extraerPersonajes(respuestaApi: any): Personaje[] {
-    const personajes: Personaje[] = [];
-    respuestaApi.results.forEach(p => {
-      personajes.push(this.mapearPersonaje(p));
+  extraerServicios(respuestaApi: any): Servicio[] {
+    const servicios: Servicio[] = [];
+    respuestaApi.results.forEach((p: any) => {
+      servicios.push(this.mapearServicio(p));
 
     });
-    return personajes;
+    return servicios;
   }
 
-  mapearPersonaje(personajeApi: any): PersonajeImpl {
-    return new PersonajeImpl(
-      personajeApi.name,
-      personajeApi.height,
-      personajeApi.mass,
-      personajeApi.hair_color,
-      personajeApi.skin_color,
-      personajeApi.eye_color,
-      personajeApi.birth_year,
-      personajeApi.gender,
-      personajeApi.homeworld,
-      personajeApi.films);
+  mapearServicio(servicioApi: any): ServicioImpl {
+    return new ServicioImpl(
+      servicioApi.nombre,
+      servicioApi.precio,
+      servicioApi.id
+     );
   }
 
-  create(personaje: Personaje): void {
-    console.log(`Se ha creado el personaje: ${JSON.stringify(personaje)}`);
+  create(servicio: Servicio): void {
+    console.log(`Se ha creado el servicio: ${JSON.stringify(servicio)}`);
   }
 
-  getPersonajesPagina(pagina: number): Observable<any> {
+  getServiciosPagina(pagina: number): Observable<any> {
     return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
-  }*/
+  }
 }

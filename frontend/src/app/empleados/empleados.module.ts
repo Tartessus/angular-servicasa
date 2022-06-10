@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { EmpleadoItemComponent } from './empleado-item/empleado-item.component';
 import { EmpleadoFormComponent } from './empleado-form/empleado-form.component';
 import { AuxiliarService } from '../service/auxiliar.service';
+import { EmpleadoComponent } from './empleados/empleado/empleado.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AuxiliarService } from '../service/auxiliar.service';
     VerComponent,
     NuevoComponent,
     EmpleadoItemComponent,
-    EmpleadoFormComponent
+    EmpleadoFormComponent,
+    EmpleadoComponent
   ],
   imports: [
     CommonModule,

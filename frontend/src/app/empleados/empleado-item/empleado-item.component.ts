@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Empleado } from '../models/empleado';
 import { EmpleadoImpl } from '../models/empleado-impl';
 
@@ -8,7 +8,9 @@ import { EmpleadoImpl } from '../models/empleado-impl';
   styleUrls: ['./empleado-item.component.css']
 })
 export class EmpleadoItemComponent implements OnInit {
-  @Input() empleado: Empleado = new EmpleadoImpl("","","","");
+  @Input() empleado: Empleado = new EmpleadoImpl("","","","","","","",[]);
+  @Output() empleadoSeleccionado = new EventEmitter<Empleado>();
+
   constructor() { }
 
   ngOnInit(): void {
