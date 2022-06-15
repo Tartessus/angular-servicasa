@@ -1,14 +1,17 @@
-import { Jardineria } from "./jardineria";
+
 import { ServicioImpl } from "./servicio-impl";
 
-export class JardineriaImpl  extends ServicioImpl implements Jardineria
+export class JardineriaImpl  extends ServicioImpl
  {
+  filter(arg0: (m: ServicioImpl) => boolean): JardineriaImpl {
+    throw new Error('Method not implemented.');
+  }
   materialPropio: boolean;
 
 
-constructor(nombre: string, precio: number, id: number, materialPropio: boolean){
-  super(nombre, precio, id);
-  super.tipo=2;
+constructor(nombre: string, precio: number, id: number, urlServicio:string , materialPropio:boolean){
+  super(nombre, precio, id, urlServicio );
+  super.tipo=1;
   this.materialPropio =materialPropio
 }
 getIdJardineria(url: string): string {

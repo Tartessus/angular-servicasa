@@ -16,11 +16,12 @@ export class EmpleadosComponent implements OnInit {
   empleados: Empleado[] = [];
   todosEmpleados: Empleado[] = [];
   numPaginas: number = 0;
-  empleadoVerDatos: Empleado = new EmpleadoImpl("","","","","","","",[]);
+  empleadoVerDatos: Empleado = new EmpleadoImpl(0,"","","","","","","",[]);
 
   constructor(
     private empleadoService: EmpleadoService,
-    private auxService: AuxiliarService) { }
+    private auxService: AuxiliarService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.empleadoService.getEmpleados().subscribe((response) => this.empleados = this.empleadoService.extraerEmpleados(response));
@@ -31,14 +32,14 @@ export class EmpleadosComponent implements OnInit {
     this.empleadoVerDatos = empleado;
   }
 
- /*  onEmpleadoEliminar(empleado: EmpleadoImpl): void {
+   onEmpleadoEliminar(empleado: EmpleadoImpl): void {
     console.log(`He eliminado a ${empleado.nombre}`);
     this.empleadoService.deleteEmpleado(empleado.id).subscribe(response => {
       this.router.navigate(['empleados']);
     this.empleados = this.empleados.filter(p => empleado !== p)
     location.reload;
-  }
-}*/
+  });
+}
 
   getTodosEmpleados(): void {
     this.empleadoService.getEmpleados().subscribe(r => {

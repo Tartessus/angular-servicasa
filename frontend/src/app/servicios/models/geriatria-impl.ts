@@ -1,13 +1,16 @@
-import { Geriatria } from "./geriatria";
+
 import { ServicioImpl } from "./servicio-impl";
 
-export class GeriatriaImpl extends ServicioImpl implements Geriatria {
+export class GeriatriaImpl extends ServicioImpl  {
+  filter(arg0: (m: ServicioImpl) => boolean): GeriatriaImpl {
+    throw new Error('Method not implemented.');
+  }
   titulacion: string;
   anosExperiencia: number;
 
-  constructor(nombre: string, precio: number, id: number , titulacion: string,anosExperiencia: number){
-    super(nombre, precio, id);
-    super.tipo=1;
+  constructor(nombre: string, precio: number, id: number , urlServicio: string , titulacion: string, anosExperiencia: number){
+    super(nombre, precio, id, urlServicio);
+    super.tipo=2;
     this.titulacion=titulacion;
     this.anosExperiencia = anosExperiencia;
   }

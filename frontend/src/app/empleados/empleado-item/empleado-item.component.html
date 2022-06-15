@@ -7,10 +7,8 @@
   <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"><a class="" data-toggle="modal"
     data-target="#modalEmpleado" (click)='empleadoSeleccionado.emit(empleado)'>{{empleado.ciudad | uppercase}}</a></div>
   <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2">
-       <div *ngIf='empleado.servicios !== null ; else elseBlock'>
-        <section  *ngFor="let servicio of empleado.servicios">
-          {{servicio}}</section>
-         </div>
+    <button class="btn btn-info" routerLink="/servicios/servicios-empleado/{{empleado.id}}">Servicios</button>
+
   </div>
   <ng-template #elseBlock>
       <span>No tiene servicios disponibles</span>

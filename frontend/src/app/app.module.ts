@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
+import { EmpleadosModule } from './empleados/empleados.module';
+import { ServiciosModule } from './servicios/servicios.module';
 
 
 
@@ -20,6 +23,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CoreModule,
     FontAwesomeModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    EmpleadosModule,
+    ServiciosModule
 
   ],
   providers: [], //en servicios

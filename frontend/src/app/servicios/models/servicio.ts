@@ -1,6 +1,6 @@
 export interface Servicio {
   nombre: string,
-  precio: number,
+  precioBase: number,
   id: number,
   tipo:number,
 

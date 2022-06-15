@@ -1,24 +1,24 @@
-import { Servicio } from "./servicio";
 
-export class ServicioImpl implements Servicio {
+
+export class ServicioImpl {
   nombre: string;
-  precio: number;
+  precioBase: number;
   tipo: number;
   id: number;
+  urlServicio: string;
 
+  constructor(nombre: string, precioBase: number, id: number, urlServicio: string) {
+    this.nombre = nombre;
+    this.precioBase = precioBase;
+    this.tipo = 0; //OJO con esto
+    this.id = id;
+    this.urlServicio = urlServicio;
+  }
 
+  getIdSevicio(urlServicio: string): string {
+    // urlServicio = urlServicio.slice(0, urlServicio.length - 1)
+    return urlServicio.slice(urlServicio.lastIndexOf('/') + 1, urlServicio.length);
+  }
 
-constructor( nombre: string, precio: number, id: number){
-  this.nombre = nombre;
- this.precio = precio;
-  this.tipo = 0;  //OJO con esto
-  this.id =id;
-
-}
-
-getIdServicio(url: string): string {
-  url = url.slice(0, url.length - 1)
-  return url.slice(url.lastIndexOf('/') + 1, url.length);
-}
 
 }

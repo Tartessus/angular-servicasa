@@ -1,7 +1,7 @@
 
 <header>
-<a routerLink="ver" class="button">Ver Empleados</a>
-<a routerLink="nuevo" class="button">Añadir nuevo Empleado</a>
+<a routerLink="/empleados" class="button">Ver Empleados</a>
+<a routerLink="/empleados/empleado-form" class="button">Añadir nuevo Empleado</a>
 </header>
 <body>
 
@@ -33,7 +33,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-empleado [empleado]='empleadoVerDatos' (empleadoEliminar)='onEmpleadoEliminar($event)'></app-empleado>
+        <app-empleado [empleado]="empleadoVerDatos" (empleadoEliminar)="onEmpleadoEliminar($event)"></app-empleado>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

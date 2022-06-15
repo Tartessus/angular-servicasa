@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { environment } from 'src/environments/environment';
-import { Servicio } from '../models/servicio';
+
 import { ServicioImpl } from '../models/servicio-impl';
 
 
@@ -24,8 +24,8 @@ private urlEndPoint: string = `${this.host}servicios`;
     return this.http.get<any>(this.urlEndPoint);
   }
 
-  extraerServicios(respuestaApi: any): Servicio[] {
-    const servicios: Servicio[] = [];
+  extraerServicios(respuestaApi: any): ServicioImpl[] {
+    const servicios: ServicioImpl[] = [];
     respuestaApi.results.forEach((p: any) => {
       servicios.push(this.mapearServicio(p));
 
@@ -37,15 +37,32 @@ private urlEndPoint: string = `${this.host}servicios`;
     return new ServicioImpl(
       servicioApi.nombre,
       servicioApi.precio,
-      servicioApi.id
+      servicioApi.id,
+      servicioApi._links.self.href
      );
   }
 
-  create(servicio: Servicio): void {
+  create(servicio: ServicioImpl): void {
     console.log(`Se ha creado el servicio: ${JSON.stringify(servicio)}`);
   }
 
   getServiciosPagina(pagina: number): Observable<any> {
     return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
   }
+
+  deleteServicio(direccionEliminar: string): Observable<any>{
+    return this.http.delete(direccionEliminar);
+  }
+
+ // Para cargar en modal
+ getDatosServicio(direccionConsulta: string){
+  this.http.get(direccionConsulta).subscribe();
+}
+
+//para editar
+patchServicio(servicio: ServicioImpl) {
+  return this.http.patch<any>(`${this.urlEndPoint}/${servicio.id}`, servicio);
+}
+
+
 }

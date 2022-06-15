@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
-import { Jardineria } from '../models/jardineria';
+import { JardineriaImpl } from '../models/jardineria-impl';
+
 import { JardineriaService } from '../service/jardineria.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { JardineriaService } from '../service/jardineria.service';
   styleUrls: ['./jardineria.component.css']
 })
 export class JardineriaComponent implements OnInit {
-  jardinerias: Jardineria[] = [];
-  todosJardineria: Jardineria[] = [];
+  jardinerias: JardineriaImpl[] = [];
+  todosJardineria: JardineriaImpl[] = [];
     numPaginas: number = 0;
 
     constructor(

@@ -8,7 +8,7 @@ import { EmpleadoImpl } from '../models/empleado-impl';
   styleUrls: ['./empleado-item.component.css']
 })
 export class EmpleadoItemComponent implements OnInit {
-  @Input() empleado: Empleado = new EmpleadoImpl("","","","","","","",[]);
+  @Input() empleado: Empleado = new EmpleadoImpl(0, "","","","","","","",[]);
   @Output() empleadoSeleccionado = new EventEmitter<Empleado>();
 
   constructor() { }

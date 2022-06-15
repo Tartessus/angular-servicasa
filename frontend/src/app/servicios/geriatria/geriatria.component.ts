@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
-import { Geriatria } from '../models/geriatria';
+import { GeriatriaImpl } from '../models/geriatria-impl';
 import { GeriatriaService } from '../service/geriatria.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { GeriatriaService } from '../service/geriatria.service';
   styleUrls: ['./geriatria.component.css']
 })
 export class GeriatriaComponent implements OnInit {
-  geriatrias: Geriatria[] = [];
-  todosGeriatria: Geriatria[] = [];
+  geriatrias: GeriatriaImpl[] = [];
+  todosGeriatria: GeriatriaImpl[] = [];
     numPaginas: number = 0;
 
     constructor(

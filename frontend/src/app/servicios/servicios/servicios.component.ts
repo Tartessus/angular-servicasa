@@ -1,88 +1,76 @@
-import { Component, OnInit } from '@angular/core';
-import { AuxiliarService } from 'src/app/service/auxiliar.service';
-import { Geriatria } from '../models/geriatria';
-import { Jardineria } from '../models/jardineria';
-import { Servicio } from '../models/servicio';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { ServicioService } from '../service/servicio.service';
+import { AuxiliarService } from 'src/app/service/auxiliar.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 import { GeriatriaService } from '../service/geriatria.service';
 import { JardineriaService } from '../service/jardineria.service';
+import { ServicioImpl } from '../models/servicio-impl';
+import { JardineriaImpl } from '../models/jardineria-impl';
+import { GeriatriaImpl } from '../models/geriatria-impl';
 
 @Component({
   selector: 'app-servicios',
   templateUrl: './servicios.component.html',
-  styleUrls: ['./servicios.component.css']
+  styleUrls: ['./servicios.component.css'],
 })
 export class ServiciosComponent implements OnInit {
-servicios: Servicio[] = [];
-jardinerias: Jardineria[] = [];
-geriatrias: Geriatria[] = [];
-todosServicios: Servicio[] = [];
-  numPaginas: number = 0;
+  todosServicios: ServicioImpl[] = [];
+
+  public geriatria: GeriatriaImpl = new GeriatriaImpl('', 0, 0, '', '', 0);
+  public jardineria: JardineriaImpl = new JardineriaImpl('', 0, 0, '', false);
 
   constructor(
-private servicioService: ServicioService,
-private auxService: AuxiliarService) {}
-
+    private jardineriaService: JardineriaService,
+    private geriatriaService: GeriatriaService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.servicioService.getServicios().subscribe((response) => this.servicios = this.servicioService.extraerServicios(response));
+    debugger;
     this.getTodosServicios();
-  /*  this.geriatriaService.getGeriatria().subscribe((response) => this.geriatrias =
-    this.geriatriaService.extraerGeriatria(response));
-    this.getTodosGeriatria();*/
   }
-
 
   getTodosServicios(): void {
-    this.servicioService.getServicios().subscribe(r => {
-      this.numPaginas = this.auxService.getPaginasResponse(r);
-      for (let index = 1; index <= this.numPaginas; index++) {
-        this.servicioService.getServiciosPagina(index)
-          .subscribe(response => {
-            this.todosServicios.push(...this.servicioService.extraerServicios(response));
-          });
-      }
+    this.todosServicios = [];
+    this.geriatriaService.getGeriatria().subscribe((response) => {
+      debugger;
+      this.todosServicios.push(
+
+        ...this.geriatriaService.extraerGeriatria(response)
+      );
+
+      this.jardineriaService.getJardineria().subscribe((response) => {
+        debugger;
+        this.todosServicios.push(
+          ...this.jardineriaService.extraerJardineria(response)
+        );
+      });
     });
   }
 
-
-  /*verDatos(maletaBarco: Maletabarco) : void {
-    this.maletaBarcoVerDatos = maletaBarco;
-    // this.router.navigate([`maletasbarco/${maletaBarco.id}`]);
-
+  onServicioEliminar(servicio: ServicioImpl) {
+    if (servicio.tipo === 2) {
+      this.geriatriaService
+        .deleteGeriatria(servicio.id)
+        .subscribe((response) => {
+          //this.router.navigate(['servicios']);
+         /* this.geriatria = this.geriatria.filter(
+            (m: ServicioImpl) => servicio !== m
+          );*/
+          this.getTodosServicios();
+        });
+    } else {
+      this.jardineriaService
+        .deleteJardineria(servicio.id)
+        .subscribe((response) => {
+          //this.router.navigate(['servicios']);
+          /*this.jardineria = this.jardineria.filter(
+            (m: ServicioImpl) => servicio !== m
+          );*/
+          this.getTodosServicios();
+        });
+    }
   }
-
-  verDatosC(maletaCabina: Maletacabina) : void {
-    this.maletaCabinaVerDatos = maletaCabina;
-    // this.router.navigate([`maletascabina/${maletaCabina.id}`]);
-
-  }
-
-  registrarMaletaBarco() {
-    this.router.navigate([`maletas/barco-form`])
-  }
-
-  onMaletaBarcoEliminar(maleta : Maletabarco){
-    this.maletaService.deleteMaletaB(maleta.id).subscribe(response => {
-      this.router.navigate(['maletas']);
-      this.maletasBarco = this.maletasBarco.filter(m => maleta !== m)
-      location.reload;
-    });
-  }
-  onMaletaCabinaEliminar(maleta : Maletacabina){
-    this.maletaService.deleteMaletaC(maleta.id).subscribe(response => {
-      this.router.navigate(['maletas']);
-      this.maletasCabina = this.maletasCabina.filter(m => maleta !== m)
-      location.reload;
-    });
-  }
-
-  onMaletaBarcoEditar(maleta: Maletabarco){
-    let url = `maletas/barco-form/${maleta.id}`;
-    this.router.navigate([url])
-  }
-*/
-
-
 }

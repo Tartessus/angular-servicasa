@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   logo: '../assets/logo.jpg',
   urlProyecto: 'https://git.institutomilitar.com/Tartessus/SERVICASA',
-  host:  'https://servicasaapp.herokuapp.com/api/',
+  host:  'http://localhost:8080/api/',
   itemsPorPagina: 10
 };
 /*

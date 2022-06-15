@@ -1,1 +1,78 @@
-<p>empleado-form works!</p>
+<header>
+  <a routerLink="/empleados" class="button">Ver Empleados</a>
+  <a routerLink="/empleados/empleado-form" class="button">Añadir nuevo Empleado</a>
+</header>
+
+<main>
+  <!--Sección escrito encima del formulario -->
+ <section id="PreFormulario">
+     <br>
+     <h3>Formulario Nuevo Empleado</h3><br>
+     <p>Rellene el formulario con los datos solicitados</p><br>
+ </section>
+  <!--Sección del formulario -->
+ <section>
+     <form *ngIf="empleado"  id="formulario" class="col-md-6">
+          <!--Nombre -->
+         <div class="form-row">
+           <div class="form-group col-md-4">
+             <label >Nombre</label>
+             <input type="name" [(ngModel)]="empleado.nombre" class="form-control" id="nombre" placeholder="Nombre">
+           </div>
+            <!--Apellido -->
+           <div class="form-group col-md-8">
+             <label >Apellido</label>
+             <input type="surname" [(ngModel)]="empleado.apellido" class="form-control" id="apellido" placeholder="Apellido">
+           </div>
+         </div>
+          <!--Dirección -->
+         <div class="form-group">
+           <label for="inputAddress">Dirección</label>
+           <input type="text" [(ngModel)]="empleado.direccion" class="form-control" id="inputAddress" placeholder="Calle Marques de la Ensenada nº 8">
+         </div>
+          <!--Email -->
+         <div class="form-row align-items-center">
+           <div class="col-auto">
+             Email
+             <label class="sr-only" for="inlineFormInput">Email</label>
+             <input type="text" [(ngModel)]="empleado.email1" class="form-control mb-2" id="inlineFormInput" placeholder="juanvaldes">
+           </div>
+            <!--parte del @ -->
+           <div class="col-auto">
+             <label for=""></label>
+             <label class="sr-only" for="inlineFormInputGroup">hotmail.com</label>
+             <div class="input-group mb-2">
+               <div class="input-group-prepend">
+                 <div class="input-group-text">@</div>
+               </div>
+               <input type="text" [(ngModel)]="empleado.email2" class="form-control" id="inlineFormInputGroup" placeholder="hotmail.com">
+             </div>
+           </div>
+         </div>
+          <!--bloque ciudad, provincia y CP -->
+         <div class="form-row">
+           <div class="form-group col-md-7">
+             <label for="inputCity">Ciudad</label>
+             <input type="text" [(ngModel)]="empleado.ciudad" class="form-control" id="inputCity" placeholder="Madrid">
+           </div>
+            <!--Añadimos opciones a seleccionar en Provincia -->
+           <div class="form-group col-md-5">
+             <label for="inputState" >Provincia</label>
+             <select [(ngModel)]="empleado.provincia" placeholder="Elige provincia" id="inputState" class="form-control">
+              <option *ngFor="let elemento of tipos" [value]="elemento.id">
+                <span>{{ elemento.description }}</span>
+                </option>
+             </select>
+           </div>
+
+         </div>
+
+          <!--Botones -->
+         <button type="reset" class="btn btn-primary">Borrar</button>
+         <button type="submit" class="btn btn-primary">Aceptar</button>
+       </form>
+
+ </section>
+
+
+</main>

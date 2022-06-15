@@ -32,7 +32,11 @@ export class EmpleadoService {
   }
 
   mapearEmpleados(empleadoApi: any): EmpleadoImpl {
- return new EmpleadoImpl(empleadoApi.nombreCompleto, empleadoApi.apellido, empleadoApi.dni, empleadoApi.direccion,  empleadoApi.email, empleadoApi.ciudad, empleadoApi.provincia, empleadoApi.servicios)
+    const url = empleadoApi._links.self.href;
+    const aux = url.split('/');
+    const id = parseInt(aux[aux.length-1]);
+
+ return new EmpleadoImpl(id,empleadoApi.nombreCompleto, empleadoApi.apellido, empleadoApi.dni, empleadoApi.direccion,  empleadoApi.email, empleadoApi.ciudad, empleadoApi.provincia, empleadoApi.servicios)
 
 
   }
@@ -45,7 +49,7 @@ export class EmpleadoService {
     return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
   }
 
-  deleteEmpleado(id: string): Observable<Empleado> {
+  deleteEmpleado(id: number): Observable<Empleado> {
     return this.http.delete<Empleado>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {
         if (e.error.mensaje) {

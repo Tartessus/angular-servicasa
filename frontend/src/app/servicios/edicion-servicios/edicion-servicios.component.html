@@ -1,0 +1,80 @@
+<body>
+  <h3>SERVICIOS</h3>
+  <br />
+  <form [formGroup]="servicioForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="form-group col-md-3">
+      <label>Nombre</label>
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        placeholder="Nombre"
+       />
+  <!--    <div *ngIf="f.get('name').invalid && (f.get('name').dirty || f.get('name').touched || submit)" class="error">
+        El nombre es obligatorio
+    </div> -->
+    </div>
+    <div class="form-group col-md-3">
+      <label>Precio</label>
+      <input
+        type="number"
+        formControlName="price"
+        class="form-control"
+        placeholder="En €"
+      />
+    </div>
+    <div class="form-group col-md-3" *ngIf="type == 1">
+      <section>
+        <div class="">
+          <label for="materialPropio">Material Propio &nbsp; </label>
+          <section class="form-control">
+            <input
+              formControlName="materialPropio"
+              value="true"
+              type="radio"
+            /><i> SI </i>
+            <input
+              formControlName="materialPropio"
+              value="false"
+              type="radio"
+            /><i> NO </i>
+          </section>
+        </div>
+        <app-jardineria></app-jardineria>
+      </section></div>
+
+      <div *ngIf="type == 2">
+        <div class="form-group col-md-3">
+          <label>Años Experiencia</label>
+          <input
+            type="number"
+            formControlName="experiencia"
+            class="form-control"
+            placeholder="experiencia"
+          />
+        </div>
+        <div class="form-group col-md-3">
+          <label>Titulación</label>
+          <input
+            type="name"
+            formControlName="titulacion"
+            class="form-control"
+            id="precio"
+            placeholder="Titulación"
+          />
+        </div>
+      </div>
+
+    <section #botones>
+      <button type="reset" class="btn">Borrar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-primary">Aceptar</button>
+    </section>
+  </form>
+  geri:{{servicioForm && servicioForm.value.type == 2}}
+  jar:{{servicioForm && servicioForm.value.type == 1}}
+
+</body>
+
+
