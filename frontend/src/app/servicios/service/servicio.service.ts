@@ -38,6 +38,7 @@ private urlEndPoint: string = `${this.host}servicios`;
       servicioApi.nombre,
       servicioApi.precio,
       servicioApi.id,
+      servicioApi.empleado,
       servicioApi._links.self.href
      );
   }

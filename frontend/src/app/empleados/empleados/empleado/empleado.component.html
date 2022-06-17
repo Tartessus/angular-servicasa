@@ -1,2 +1,23 @@
-<pre>{{ empleado | json }}</pre>
-<button type="button" class="btn btn-outline-danger" (click)="eliminar()">Eliminar</button>
+<!--<pre>{{ empleado | json }}</pre>-->
+
+<div ><b>Nombre: </b>
+  {{ empleado.nombre }}
+</div>
+<div ><b>Apellido: </b>
+  {{ empleado.apellido }}
+  <div ><b>Dirección: </b>
+      {{ empleado.direccion }}
+    </div>
+    <div ><b>DNI: </b>
+      {{ empleado.dni }}
+    </div>
+    <div ><b>Email: </b>
+      {{ empleado.email }}
+      <div ><b>Ciudad: </b>
+        {{ empleado.ciudad }}
+      </div>
+      <div ><b>Provincia: </b>
+        {{ empleado.provincia }}
+</div>
+<br><br>
+<!-- <button type="button" class="btn btn-outline-danger" (click)="eliminar()">Eliminar</button> -->

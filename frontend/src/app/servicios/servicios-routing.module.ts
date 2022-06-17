@@ -5,6 +5,7 @@ import { VerComponent } from '../empleados/empleados/ver/ver.component';
 import { EdicionServiciosComponent } from './edicion-servicios/edicion-servicios.component';
 import { GeriatriaComponent } from './geriatria/geriatria.component';
 import { JardineriaComponent } from './jardineria/jardineria.component';
+import { SeItemComponent } from './servicios-empleado/se-item/se-item.component';
 import { ServiciosEmpleadoComponent } from './servicios-empleado/servicios-empleado.component';
 import { ServiciosFormComponent } from './servicios-form/servicios-form.component';
 import { ServiciosComponent } from './servicios/servicios.component';
@@ -44,6 +45,11 @@ const routes: Routes = [
   {
     path: 'servicios-empleado/:id',
     component: ServiciosEmpleadoComponent,
+    children: [
+      {
+        path: 'servicio-item', component: SeItemComponent
+      }
+    ]
   },
 ];
 

@@ -43,6 +43,7 @@ export class JardineriaService {
       jardineriaAPI.nombre,
       jardineriaAPI.precioBase,
       id,
+      url,
       jardineriaAPI.urlServicio,
       jardineriaAPI.materialPropio
     );

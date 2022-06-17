@@ -8,8 +8,8 @@ export class GeriatriaImpl extends ServicioImpl  {
   titulacion: string;
   anosExperiencia: number;
 
-  constructor(nombre: string, precio: number, id: number , urlServicio: string , titulacion: string, anosExperiencia: number){
-    super(nombre, precio, id, urlServicio);
+  constructor(nombre: string, precio: number, id: number , empleado: string, urlServicio: string , titulacion: string, anosExperiencia: number){
+    super(nombre, precio, id, empleado, urlServicio);
     super.tipo=2;
     this.titulacion=titulacion;
     this.anosExperiencia = anosExperiencia;

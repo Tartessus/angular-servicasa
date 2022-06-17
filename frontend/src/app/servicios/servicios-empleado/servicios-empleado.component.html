@@ -1,1 +1,28 @@
+<router-outlet></router-outlet>
+<header>
+  <a routerLink="/servicios" class="button">Ver Servicios</a>
+  <a routerLink="/servicios/servicios-form" class="button">Añadir nuevo Servicio</a>
+  </header>
+  <body>
+<router-outlet></router-outlet>
+
+<div class="row col-md-5">
+  <div class="row">
+  <div class="col-5 col-sm-5 col-md-2 col-lg-3 col-xl-3">SERVICIO</div>
+  <div class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;PRECIO</div>
+  </div>
+  <div class="row" *ngIf="servicio.tipo==1">
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">MATERIAL PROPIO</div>
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3"> </div>
+</div>
+<div class="row" *ngIf="servicio.tipo==2">
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">EXPERIENCIA</div>
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">TITULACIÓN</div>
+</div>
+
+</div>
+
+<div *ngFor="let servicio of todosServicios">
+  <app-servicios-item [servicio]="servicio"  ></app-servicios-item>
+</div>
 

@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { GeriatriaImpl } from '../models/geriatria-impl';
+import { JardineriaImpl } from '../models/jardineria-impl';
+import { ServicioImpl } from '../models/servicio-impl';
+import { GeriatriaService } from '../service/geriatria.service';
+import { JardineriaService } from '../service/jardineria.service';
 import { ServicioEmpleadoService } from '../service/servicio-empleado.service';
 import { ServicioService } from '../service/servicio.service';
 
@@ -10,15 +15,25 @@ import { ServicioService } from '../service/servicio.service';
   styleUrls: ['./servicios-empleado.component.css']
 })
 export class ServiciosEmpleadoComponent implements OnInit {
+  @Input() servicio: ServicioImpl = new ServicioImpl(' ', 0, 0,'','');
+
   servicio$: Observable<any> = new Observable<any>();
+  todosServicios: ServicioImpl[] = [];
+
 
   constructor(
     private activateRoute: ActivatedRoute,
     private servicioService: ServicioService,
-    private serviciosEmpleadoService: ServicioEmpleadoService) { }
+    private serviciosEmpleadoService: ServicioEmpleadoService,
+    ) { }
 
   ngOnInit(): void {
     this.servicio$ = this.cargarServicio();
+  }
+
+  public onSubmit() {
+
+
   }
 
   cargarServicio(): any {

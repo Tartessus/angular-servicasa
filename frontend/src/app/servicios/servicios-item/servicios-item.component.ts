@@ -21,7 +21,7 @@ import { ServicioService } from '../service/servicio.service';
   styleUrls: ['./servicios-item.component.css'],
 })
 export class ServiciosItemComponent implements OnInit {
-@Input() servicio: ServicioImpl = new ServicioImpl(' ', 0, 0,'');
+@Input() servicio: ServicioImpl = new ServicioImpl(' ', 0, 0,'','');
 
   @Output() servicioSeleccionado = new EventEmitter<ServicioImpl>();
   @Output() servicioEliminar = new EventEmitter<ServicioImpl>();

@@ -8,6 +8,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { EmpleadosModule } from './empleados/empleados.module';
 import { ServiciosModule } from './servicios/servicios.module';
+import { EdicionEmpleadosComponent } from './empleador/edicion-empleados/edicion-empleados.component';
+
 
 
 
@@ -15,7 +17,7 @@ import { ServiciosModule } from './servicios/servicios.module';
 
 @NgModule({
   declarations: [  //lugar donde declaro cada uno de los componentes de la aplicación
-    AppComponent,
+    AppComponent, EdicionEmpleadosComponent,
   ],
   imports: [   //importo los elementos que tienen que aparecer al principio, en cada import, aparecen los modulos que cualgan de este módulo
     BrowserModule,

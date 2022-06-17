@@ -16,7 +16,7 @@ export class EmpleadosComponent implements OnInit {
   empleados: Empleado[] = [];
   todosEmpleados: Empleado[] = [];
   numPaginas: number = 0;
-  empleadoVerDatos: Empleado = new EmpleadoImpl(0,"","","","","","","",[]);
+  empleadoVerDatos: Empleado = new EmpleadoImpl(0,"","","","","","","",[], "");
 
   constructor(
     private empleadoService: EmpleadoService,
@@ -35,9 +35,10 @@ export class EmpleadosComponent implements OnInit {
    onEmpleadoEliminar(empleado: EmpleadoImpl): void {
     console.log(`He eliminado a ${empleado.nombre}`);
     this.empleadoService.deleteEmpleado(empleado.id).subscribe(response => {
-      this.router.navigate(['empleados']);
-    this.empleados = this.empleados.filter(p => empleado !== p)
-    location.reload;
+    //  this.router.navigate(['empleados']);
+    //this.empleados = this.empleados.filter(p => empleado !== p)
+    //location.reload;
+    this.getTodosEmpleados();
   });
 }
 
@@ -52,4 +53,19 @@ export class EmpleadosComponent implements OnInit {
       }
     });
   }
+
+  onServicioEliminar(empleado: EmpleadoImpl) {
+
+      this.empleadoService
+        .deleteEmpleado(empleado.id)
+        .subscribe((response) => {
+          //this.router.navigate(['servicios']);
+         /* this.geriatria = this.geriatria.filter(
+            (m: ServicioImpl) => servicio !== m
+          );*/
+          this.getTodosEmpleados();
+        });
+
+  }
+
 }

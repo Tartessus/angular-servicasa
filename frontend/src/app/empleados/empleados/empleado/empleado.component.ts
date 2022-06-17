@@ -8,7 +8,7 @@ import { EmpleadoImpl } from '../../models/empleado-impl';
   styleUrls: ['./empleado.component.css']
 })
 export class EmpleadoComponent implements OnInit {
-  @Input() empleado: Empleado = new EmpleadoImpl(0,"","","","","","","",[]);
+  @Input() empleado: Empleado = new EmpleadoImpl(0,"","","","","","","",[], "");
   @Output() empleadoEliminar = new EventEmitter<EmpleadoImpl>();
   constructor() { }
 

@@ -12,7 +12,7 @@
  </section>
   <!--Sección del formulario -->
  <section>
-     <form *ngIf="empleado"  id="formulario" class="col-md-6">
+     <form   id="formulario" class="col-md-6">
           <!--Nombre -->
          <div class="form-row">
            <div class="form-group col-md-4">
@@ -35,17 +35,17 @@
            <div class="col-auto">
              Email
              <label class="sr-only" for="inlineFormInput">Email</label>
-             <input type="text" [(ngModel)]="empleado.email1" class="form-control mb-2" id="inlineFormInput" placeholder="juanvaldes">
+             <input type="text" [(ngModel)]="empleado.email" class="form-control mb-2" id="inlineFormInput" placeholder="juanvaldes">
            </div>
             <!--parte del @ -->
-           <div class="col-auto">
+          <div class="col-auto">
              <label for=""></label>
              <label class="sr-only" for="inlineFormInputGroup">hotmail.com</label>
              <div class="input-group mb-2">
                <div class="input-group-prepend">
                  <div class="input-group-text">@</div>
                </div>
-               <input type="text" [(ngModel)]="empleado.email2" class="form-control" id="inlineFormInputGroup" placeholder="hotmail.com">
+               <input type="text"  class="form-control" id="inlineFormInputGroup" placeholder="hotmail.com">
              </div>
            </div>
          </div>

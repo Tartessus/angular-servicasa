@@ -14,7 +14,8 @@ import { ServiciosFormComponent } from './servicios-form/servicios-form.componen
 import { ServiciosEmpleadoComponent } from './servicios-empleado/servicios-empleado.component';
 import { RouterModule, Routes} from '@angular/router';
 import {HttpClientModule } from '@angular/common/http';
-import { EdicionServiciosComponent } from './edicion-servicios/edicion-servicios.component'
+import { EdicionServiciosComponent } from './edicion-servicios/edicion-servicios.component';
+import { SeItemComponent } from './servicios-empleado/se-item/se-item.component'
 
 
 
@@ -29,6 +30,7 @@ import { EdicionServiciosComponent } from './edicion-servicios/edicion-servicios
     ServiciosFormComponent,
     ServiciosEmpleadoComponent,
     EdicionServiciosComponent,
+    SeItemComponent,
 
   ],
   imports: [

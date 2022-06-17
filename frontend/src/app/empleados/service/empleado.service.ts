@@ -32,11 +32,12 @@ export class EmpleadoService {
   }
 
   mapearEmpleados(empleadoApi: any): EmpleadoImpl {
+    debugger;
     const url = empleadoApi._links.self.href;
     const aux = url.split('/');
     const id = parseInt(aux[aux.length-1]);
 
- return new EmpleadoImpl(id,empleadoApi.nombreCompleto, empleadoApi.apellido, empleadoApi.dni, empleadoApi.direccion,  empleadoApi.email, empleadoApi.ciudad, empleadoApi.provincia, empleadoApi.servicios)
+ return new EmpleadoImpl(id,empleadoApi.nombreCompleto, empleadoApi.apellido, empleadoApi.dni, empleadoApi.direccion,  empleadoApi.email, empleadoApi.ciudad, empleadoApi.provincia, empleadoApi.servicios, url)
 
 
   }

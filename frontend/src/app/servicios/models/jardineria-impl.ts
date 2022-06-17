@@ -9,8 +9,8 @@ export class JardineriaImpl  extends ServicioImpl
   materialPropio: boolean;
 
 
-constructor(nombre: string, precio: number, id: number, urlServicio:string , materialPropio:boolean){
-  super(nombre, precio, id, urlServicio );
+constructor(nombre: string, precio: number, id: number, empleado: string, urlServicio:string , materialPropio:boolean){
+  super(nombre, precio, id, empleado, urlServicio );
   super.tipo=1;
   this.materialPropio =materialPropio
 }

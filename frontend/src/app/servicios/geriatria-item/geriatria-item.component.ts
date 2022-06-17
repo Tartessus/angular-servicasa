@@ -7,7 +7,7 @@ import { GeriatriaImpl } from '../models/geriatria-impl';
   styleUrls: ['./geriatria-item.component.css']
 })
 export class GeriatriaItemComponent implements OnInit {
-  @Input() geriatria: GeriatriaImpl = new GeriatriaImpl( " ", 0, 0,'', "", 0 );
+  @Input() geriatria: GeriatriaImpl = new GeriatriaImpl( " ", 0, 0,'','', '', 0 );
   constructor() { }
 
   ngOnInit(): void {

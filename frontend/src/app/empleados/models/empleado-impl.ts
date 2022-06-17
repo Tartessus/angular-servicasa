@@ -10,6 +10,7 @@ export class EmpleadoImpl implements Empleado {
   ciudad: string;
   provincia: string;
   servicios: any[];
+  urlEmpleado: string;
 
   constructor(
     id: number,
@@ -20,7 +21,8 @@ export class EmpleadoImpl implements Empleado {
     email: any,
     ciudad: any,
     provincia: any,
-    servicios: any[]
+    servicios: any[],
+    urlEmpleado: any
   ) {
     this.id = id;
     this.nombre = nombre;
@@ -31,5 +33,10 @@ export class EmpleadoImpl implements Empleado {
     this.ciudad = ciudad;
     this.provincia = provincia;
     this.servicios = servicios;
+    this.urlEmpleado = urlEmpleado;
   }
+ // getIdEmpleado(urlEmpleado: string): string {
+    // urlServicio = urlServicio.slice(0, urlServicio.length - 1)
+   // return urlEmpleado.slice(urlEmpleado.lastIndexOf('/') + 1, urlEmpleado.length);
+  //}
 }

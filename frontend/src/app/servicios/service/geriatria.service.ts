@@ -41,6 +41,7 @@ export class GeriatriaService {
       geriatriaApi.nombre,
       geriatriaApi.precioBase,
       id,
+      geriatriaApi.empleado,
       geriatriaApi.urlServicio,
       geriatriaApi.titulacion,
       geriatriaApi.anosExperiencia

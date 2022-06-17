@@ -7,7 +7,7 @@ import { JardineriaImpl } from '../models/jardineria-impl';
   styleUrls: ['./jardineria-item.component.css']
 })
 export class JardineriaItemComponent implements OnInit {
-  @Input() jardineria: JardineriaImpl = new JardineriaImpl( " ", 0, 0,'', false );
+  @Input() jardineria: JardineriaImpl = new JardineriaImpl( " ", 0, 0,'','', false );
   constructor() { }
 
   ngOnInit(): void {

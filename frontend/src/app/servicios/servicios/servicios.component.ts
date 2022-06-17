@@ -18,8 +18,8 @@ import { GeriatriaImpl } from '../models/geriatria-impl';
 export class ServiciosComponent implements OnInit {
   todosServicios: ServicioImpl[] = [];
 
-  public geriatria: GeriatriaImpl = new GeriatriaImpl('', 0, 0, '', '', 0);
-  public jardineria: JardineriaImpl = new JardineriaImpl('', 0, 0, '', false);
+  public geriatria: GeriatriaImpl = new GeriatriaImpl('', 0, 0, '', '','', 0);
+  public jardineria: JardineriaImpl = new JardineriaImpl('', 0, 0, '','', false);
 
   constructor(
     private jardineriaService: JardineriaService,

@@ -88,6 +88,7 @@ export class EdicionServiciosComponent implements OnInit {
           servicioEntity.name,
           servicioEntity.price,
           0,
+          servicioEntity.empleado,
           servicioEntity.url,
           servicioEntity.titulacion ,
           servicioEntity.anosExperiencia );
@@ -105,6 +106,7 @@ export class EdicionServiciosComponent implements OnInit {
           servicioEntity.name,
           servicioEntity.price,
           0,
+          servicioEntity.empleado,
           servicioEntity.url,
           servicioEntity.materialPropio
         );

@@ -7,18 +7,19 @@
 
 <router-outlet></router-outlet>
 
-
+<div class="col-md-10"><br><br><br>
 <div class="row">
-  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">NOMBRE</div>
-  <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2">APELLIDOS</div>
-  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">CIUDAD</div>
-  <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2">SERVICIOS</div>
+  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"><b>NOMBRE</b></div>
+  <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2"><b>APELLIDOS</b></div>
+  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"><b>CIUDAD</b></div>
+  <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2"><b>SERVICIOS</b></div>
+  <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2"><b></b></div>
 </div>
 
 <div *ngFor="let empleado of empleados">
-  <app-empleado-item [empleado]="empleado" (empleadoSeleccionado)="verDatos($event)"></app-empleado-item>
+  <app-empleado-item [empleado]="empleado" (empleadoSeleccionado)="verDatos($event)" (empleadoEliminar)="onEmpleadoEliminar($event)"></app-empleado-item>
 </div>
-
+</div>
 
 
 <!-- Modal -->
@@ -33,7 +34,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-empleado [empleado]="empleadoVerDatos" (empleadoEliminar)="onEmpleadoEliminar($event)"></app-empleado>
+        <app-empleado [empleado]="empleadoVerDatos" ></app-empleado>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

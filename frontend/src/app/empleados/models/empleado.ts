@@ -8,4 +8,5 @@ export interface Empleado {
   ciudad: string;
   provincia: string;
   servicios: any[];
+  urlEmpleado: string;
 }
