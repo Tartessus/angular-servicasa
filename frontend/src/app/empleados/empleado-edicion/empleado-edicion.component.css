@@ -1,0 +1,60 @@
+body {
+	background-color: azure;
+	display: flex;
+	min-height: 100vh;
+	flex-wrap: wrap;
+  text-align: center;
+
+  margin:2em;
+}
+
+#menu {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#formulario {
+margin-left: auto;
+    margin-right: auto;
+}
+header{
+
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: flex-end;
+
+}
+main {
+    margin-left: 100px;
+	margin-bottom: 100px;
+}
+
+
+
+main{
+	align-self: flex-end;
+
+	min-height: 200%;
+	max-height: 200%;
+}
+
+
+
+button {
+margin-right: 50px;
+}
+
+@media screen and (max-width: 600px) {
+	.col-25, .col-75, input[type=submit] {
+	  width: 100%;
+	  margin-top: 0;
+	}
+}
+
+#Preformulario{
+  text-align: left;
+}
+
+

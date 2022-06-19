@@ -42,7 +42,7 @@
             /><i> NO </i>
           </section>
         </div>
-        <app-jardineria></app-jardineria>
+
       </section></div>
 
       <div *ngIf="type == 2">
@@ -50,7 +50,7 @@
           <label>Años Experiencia</label>
           <input
             type="number"
-            formControlName="experiencia"
+            formControlName="anosExperiencia"
             class="form-control"
             placeholder="experiencia"
           />
@@ -72,7 +72,7 @@
       <button class="btn btn-primary">Aceptar</button>
     </section>
   </form>
-  geri:{{servicioForm && servicioForm.value.type == 2}}
+ <!----> geri:{{servicioForm && servicioForm.value.type == 2}}
   jar:{{servicioForm && servicioForm.value.type == 1}}
 
 </body>

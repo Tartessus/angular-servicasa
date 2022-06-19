@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NuevoComponent } from '../empleados/empleados/nuevo/nuevo.component';
-import { VerComponent } from '../empleados/empleados/ver/ver.component';
 import { EdicionServiciosComponent } from './edicion-servicios/edicion-servicios.component';
 import { GeriatriaComponent } from './geriatria/geriatria.component';
 import { JardineriaComponent } from './jardineria/jardineria.component';
@@ -15,14 +13,6 @@ const routes: Routes = [
   {
     path:'',
   component: ServiciosComponent,
-  children: [
-    {
-      path: 'nuevo', component: NuevoComponent
-    },
-    {
-      path: 'ver', component: VerComponent
-    }
-  ]
   },
   {
     path: 'servicios-form',

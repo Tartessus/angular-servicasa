@@ -55,21 +55,13 @@ export class ServiciosComponent implements OnInit {
       this.geriatriaService
         .deleteGeriatria(servicio.id)
         .subscribe((response) => {
-          //this.router.navigate(['servicios']);
-         /* this.geriatria = this.geriatria.filter(
-            (m: ServicioImpl) => servicio !== m
-          );*/
-          this.getTodosServicios();
+               this.getTodosServicios();
         });
     } else {
       this.jardineriaService
         .deleteJardineria(servicio.id)
         .subscribe((response) => {
-          //this.router.navigate(['servicios']);
-          /*this.jardineria = this.jardineria.filter(
-            (m: ServicioImpl) => servicio !== m
-          );*/
-          this.getTodosServicios();
+                  this.getTodosServicios();
         });
     }
   }

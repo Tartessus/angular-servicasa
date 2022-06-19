@@ -17,28 +17,113 @@
          <div class="form-row">
            <div class="form-group col-md-4">
              <label >Nombre</label>
-             <input type="name" [(ngModel)]="empleado.nombre" class="form-control" id="nombre" placeholder="Nombre">
-           </div>
+             <input type="text" [(ngModel)]="empleado.nombre" class="form-control" id="nombre" placeholder="Nombre"
+             name="nombre"
+        required
+        minlength="3"
+        maxlength="20"
+        #nombre="ngModel"
+        [ngClass]="{
+          'is-invalid': nombre.invalid && (nombre.dirty || nombre.touched),
+          'is-valid': !nombre.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+      >
+        <div *ngIf="nombre.errors?.['required']">
+          El Nombre del usuario es obligatorio
+        </div>
+        <div *ngIf="nombre.errors?.['minlength'|| 'maxlength']">
+          El Nombre del usuario debe tener al menos 3 caracteres y maximo 20
+        </div>
+      </div>
+    </div>
+
             <!--Apellido -->
            <div class="form-group col-md-8">
              <label >Apellido</label>
-             <input type="surname" [(ngModel)]="empleado.apellido" class="form-control" id="apellido" placeholder="Apellido">
-           </div>
+             <input type="text" [(ngModel)]="empleado.apellido" class="form-control" id="apellido" placeholder="Apellido"
+             name="apellido"
+        required
+        minlength="3"
+        maxlength = '30'
+        #apellido="ngModel"
+        [ngClass]="{
+          'is-invalid': apellido.invalid && (apellido.dirty || apellido.touched),
+          'is-valid': !apellido.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)"
+      >
+        <div *ngIf="apellido.errors?.['required']">
+          El Nombre del usuario es obligatorio
+        </div>
+        <div *ngIf="apellido.errors?.['minlength' || 'maxlength']">
+          El Nombre del usuario debe tener al menos 3 caracteres
+        </div>
+      </div>
+    </div>
+
          </div>
           <!--Dirección -->
          <div class="form-group">
            <label for="inputAddress">Dirección</label>
-           <input type="text" [(ngModel)]="empleado.direccion" class="form-control" id="inputAddress" placeholder="Calle Marques de la Ensenada nº 8">
-         </div>
+           <input type="text" [(ngModel)]="empleado.direccion" class="form-control" id="inputAddress" placeholder="Calle Marques de la Ensenada nº 8"
+           name="direccion"
+        required
+        minlength="10"
+        #direccion="ngModel"
+        [ngClass]="{
+          'is-invalid': direccion.invalid && (direccion.dirty || direccion.touched),
+          'is-valid': !direccion.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)"
+      >
+        <div *ngIf="direccion.errors?.['required']">
+          El Nombre del usuario es obligatorio
+        </div>
+        <div *ngIf="direccion.errors?.['minlength']">
+          El Nombre del usuario debe tener al menos 10 caracteres
+        </div>
+      </div>
+    </div>
           <!--Email -->
          <div class="form-row align-items-center">
-           <div class="col-auto">
+           <div class="col-md-4">
              Email
              <label class="sr-only" for="inlineFormInput">Email</label>
-             <input type="text" [(ngModel)]="empleado.email" class="form-control mb-2" id="inlineFormInput" placeholder="juanvaldes">
+             <input type="email" [(ngModel)]="empleado.email" class="form-control mb-2" id="inlineFormInput" placeholder="tu@email.com"
+             name="email"
+             required
+             minlength="3"
+             email=''
+             #email="ngModel"
+             [ngClass]="{
+               'is-invalid': email.invalid && (email.dirty || email.touched),
+               'is-valid': !email.invalid
+             }"
+           />
+           <div
+             class="text-danger"
+             *ngIf="email.invalid && (email.dirty || email.touched)"
+           >
+             <div *ngIf="email.errors?.['required']">
+               El Nombre del usuario es obligatorio
+             </div>
+             <div *ngIf="email.errors?.['minlength']">
+               NO tiene el formato adecuado texto@texto.com
+             </div>
            </div>
+         </div>
             <!--parte del @ -->
-          <div class="col-auto">
+         <!-- <div class="col-auto">
              <label for=""></label>
              <label class="sr-only" for="inlineFormInputGroup">hotmail.com</label>
              <div class="input-group mb-2">
@@ -47,14 +132,35 @@
                </div>
                <input type="text"  class="form-control" id="inlineFormInputGroup" placeholder="hotmail.com">
              </div>
-           </div>
+           </div>-->
          </div>
           <!--bloque ciudad, provincia y CP -->
          <div class="form-row">
            <div class="form-group col-md-7">
              <label for="inputCity">Ciudad</label>
-             <input type="text" [(ngModel)]="empleado.ciudad" class="form-control" id="inputCity" placeholder="Madrid">
-           </div>
+             <input type="text" [(ngModel)]="empleado.ciudad" class="form-control" id="inputCity" placeholder="Madrid"
+             name="ciudad"
+        required
+        minlength="3"
+        maxlength='20'
+        #ciudad="ngModel"
+        [ngClass]="{
+          'is-invalid': ciudad.invalid && (ciudad.dirty || ciudad.touched),
+          'is-valid': !ciudad.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="ciudad.invalid && (ciudad.dirty || ciudad.touched)"
+      >
+        <div *ngIf="ciudad.errors?.['required']">
+          El Nombre del usuario es obligatorio
+        </div>
+        <div *ngIf="ciudad.errors?.['minlength']">
+          El Nombre del usuario debe tener al menos 3 caracteres y maximo 20
+        </div>
+      </div>
+    </div>
             <!--Añadimos opciones a seleccionar en Provincia -->
            <div class="form-group col-md-5">
              <label for="inputState" >Provincia</label>

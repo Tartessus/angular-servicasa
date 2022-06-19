@@ -11,7 +11,6 @@ import { GeriatriaImpl } from '../models/geriatria-impl';
 })
 export class GeriatriaService {
 
-
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}geriatrias`;
 
@@ -41,7 +40,7 @@ export class GeriatriaService {
       geriatriaApi.nombre,
       geriatriaApi.precioBase,
       id,
-      geriatriaApi.empleado,
+      url,
       geriatriaApi.urlServicio,
       geriatriaApi.titulacion,
       geriatriaApi.anosExperiencia

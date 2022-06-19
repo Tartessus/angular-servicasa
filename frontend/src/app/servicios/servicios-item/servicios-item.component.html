@@ -22,7 +22,8 @@
       &nbsp;<fa-icon class=" fa-2x" [icon]="mirar"></fa-icon>&nbsp;
     </a>-->
 
-     <a class="" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="servicioSeleccionado.emit(servicio) " routerLink="/servicios/edicion-servicios/{{servicio.id}}/{{servicio.tipo}}">
+    <div class="row" >
+     <a class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="servicioSeleccionado.emit(servicio) " routerLink="/servicios/edicion-servicios/{{servicio.id}}/{{servicio.tipo}}">
       &nbsp;<fa-icon class=" fa-2x" [icon]="modificar"></fa-icon>&nbsp;
     </a>
 
@@ -32,7 +33,7 @@
       <fa-icon class=" fa-2x" [icon]="trash"></fa-icon>
       &nbsp;
     </a>
-
+  </div>
   </div>
 
     <!-- <a data-bs-toggle="modal" data-bs-target="#modalBorrar">

@@ -1,7 +1,8 @@
 
 import { ServicioImpl } from "./servicio-impl";
 
-export class GeriatriaImpl extends ServicioImpl  {
+export class GeriatriaImpl extends ServicioImpl
+{
   filter(arg0: (m: ServicioImpl) => boolean): GeriatriaImpl {
     throw new Error('Method not implemented.');
   }

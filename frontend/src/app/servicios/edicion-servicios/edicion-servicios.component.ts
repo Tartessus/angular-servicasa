@@ -48,7 +48,7 @@ export class EdicionServiciosComponent implements OnInit {
         this.servicioForm = this.formBuilder.group({
           name: [service.nombre, Validators.required],
           price: [service.precioBase, Validators.required],
-          experiencia: [service.experiencia, Validators.required],
+          anosExperiencia: [service.anosExperiencia, Validators.required],
           titulacion: [service.titulacion,Validators.required ],
         });
       },
@@ -80,7 +80,7 @@ export class EdicionServiciosComponent implements OnInit {
 
     const servicioEntity = this.servicioForm.value;
     debugger;
-    if (confirm('Realmente quiere añadir un nuevo elemento')){
+    if (confirm('¿Realmente quiere modificar el elemento elemento?')){
       debugger;
     if (!this.servicioForm.invalid) {
       if (this.type == 2) {

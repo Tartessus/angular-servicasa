@@ -17,7 +17,9 @@ export class EmpleadoService {
     private http: HttpClient,
     private auxService: AuxiliarService) { }
 
-
+    findById(serviceId: any) :Observable<any> {
+      return this.http.get<any>(`${this.urlEndPoint}/${serviceId}`);
+    }
   getEmpleados(): Observable<any> {
     return this.http.get<any>(this.urlEndPoint);
   }
@@ -44,6 +46,12 @@ export class EmpleadoService {
 
   create(empleado: Empleado): void {
     console.log(`Se ha creado un nuevo empleado: ${JSON.stringify(empleado)}`);
+  }
+  postEmpleado(empleado: EmpleadoImpl){
+    this.http.post(this.urlEndPoint, empleado).subscribe();
+  }
+  update(empl: EmpleadoImpl, id: number) : Observable<any>  {
+    return this.http.put<any>(`${this.urlEndPoint}/${id}`, empl);
   }
 
   getEmpleadosPagina(pagina: number): Observable<any> {

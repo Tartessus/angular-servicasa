@@ -24,15 +24,6 @@ private urlEndPoint: string = `${this.host}servicios`;
     return this.http.get<any>(this.urlEndPoint);
   }
 
-  extraerServicios(respuestaApi: any): ServicioImpl[] {
-    const servicios: ServicioImpl[] = [];
-    respuestaApi.results.forEach((p: any) => {
-      servicios.push(this.mapearServicio(p));
-
-    });
-    return servicios;
-  }
-
   mapearServicio(servicioApi: any): ServicioImpl {
     return new ServicioImpl(
       servicioApi.nombre,

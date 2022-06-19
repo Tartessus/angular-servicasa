@@ -1,4 +1,4 @@
 export interface Titulacion {
-  id: number;
+  idn: number;
   description: string;
 }

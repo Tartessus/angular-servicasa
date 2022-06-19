@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Tipo } from 'src/app/servicios/models/tipo';
 import { EmpleadoImpl } from '../models/empleado-impl';
+import { EmpleadoService } from '../service/empleado.service';
 
 @Component({
   selector: 'app-empleado-form',
@@ -23,6 +24,7 @@ export class EmpleadoFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private empleadoService: EmpleadoService,
   ) {
 
  /*   this.servicioForm = this.formBuilder.group({
@@ -38,4 +40,9 @@ export class EmpleadoFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  create(): void {
+
+    this.empleadoService.postEmpleado(this.empleado);
+
+  }
 }

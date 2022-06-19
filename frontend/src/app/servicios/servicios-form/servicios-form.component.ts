@@ -17,6 +17,7 @@ import { JardineriaService } from '../service/jardineria.service';
   styleUrls: ['./servicios-form.component.css'],
 })
 export class ServiciosFormComponent implements OnInit {
+ //public geriatria: GeriatriaImpl = new GeriatriaImpl('', 0, 0, '','',"",0);
   public servicio: ServicioImpl = new ServicioImpl('', 0, 0, '','');
   public servicioForm: FormGroup;
   private host: string = environment.host;
@@ -24,7 +25,6 @@ export class ServiciosFormComponent implements OnInit {
 
   public empleados: EmpleadoImpl[] = [];
 
-  //public empleadoNombre:
 
   public tipos: Tipo[] = [
     { id: 0, description: 'Elige Servicio' },
@@ -33,11 +33,11 @@ export class ServiciosFormComponent implements OnInit {
   ];
 
   public titulacion: Titulacion[] = [
-    { id: 0, description: 'Elige Titulacion' },
-    { id: 1, description: 'ESO' },
-    { id: 2, description: 'Modulo Enfermeria' },
-    { id: 3, description: 'Enfermeria' },
-    { id: 4, description: 'Modulo Geriatria' },
+    { idn: 0, description: 'Elige Titulacion' },
+    { idn: 1, description: 'ESO' },
+    { idn: 2, description: 'Modulo Enfermeria' },
+    { idn: 3, description: 'Enfermeria' },
+    { idn: 4, description: 'Modulo Geriatria' },
   ];
   submitted: boolean = false;
 
@@ -194,49 +194,6 @@ export class ServiciosFormComponent implements OnInit {
     }
   }
 
-  /* serviciosForm: FormGroup;
-  hasError = false;
-  message: string;
-  submit = false;
-
-  constructor(private formBuilder: FormBuilder,
-    private serviciosService: ServicioService) { }
-
-  ngOnInit() {
-    this.serviciosForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      acronym: ['', Validators.required]
-    });
-  }
-  // convenience getter for easy access to form fields
-  get f() {
-    return this.serviciosForm;
-  }
-
-  onSubmit() {
-    this.submit = true;
-    if (!this.serviciosForm.invalid) {
-      const serviciosEntity = this.serviciosForm.value;
-
-      const formData: FormData = new FormData();
-      formData.append('name', serviciosEntity.name);
-      formData.append('acronym', serviciosEntity.acronym);
-
-      this.serviciosService.addServicio(formData).subscribe(
-        (res: MessageResponse) => {
-          this.setMessage(res);
-        },
-        (res: MessageResponse) => {
-          this.setMessage(res);
-        }
-      );
-    }
-  }
-
-  private setMessage(res: MessageResponse) {
-    this.hasError = res.hasError;
-    this.message = res.message;
-  }*/
 }
 function customerData(arg0: string, customerData: any) {
   throw new Error('Function not implemented.');
