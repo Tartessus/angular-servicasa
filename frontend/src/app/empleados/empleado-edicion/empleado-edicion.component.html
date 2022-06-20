@@ -49,10 +49,10 @@
            </div>
            </div>
           </div>
-        </div>
+
             <!--Apellido -->
-        <div class="form-row">
-        <div class="form-group col-md-6">
+
+        <div class="form-group col-md-8">
              <label >Apellido</label>
              <input type="text" [(ngModel)]="empleado.apellido" class="form-control" id="apellido" placeholder="Apellido"
              required
@@ -85,7 +85,8 @@
            </div>
          </div>
         </div>
-      </div>
+
+    </div>
           <!--Dirección -->
          <div class="form-group">
            <label for="inputAddress">Dirección</label>
@@ -114,7 +115,7 @@
 
           <!--Email -->
          <div class="form-row align-items-center">
-           <div class="col-auto">
+           <div class="col-md-6">
              Email
              <label class="sr-only" for="inlineFormInput">Email</label>
              <input type="email" [(ngModel)]="empleado.email" class="form-control mb-2" id="inlineFormInput" placeholder="correo@email.es" required
@@ -182,13 +183,13 @@
                El Nombre del usuario debe tener al menos 5 caracteres y no mas de 20
              </div>
            </div>
-         </div>
+          </div>
 
             <!--Añadimos opciones a seleccionar en Provincia -->
            <div class="form-group col-md-5">
              <label for="inputState" >Provincia</label>
              <select [(ngModel)]="empleado.provincia" placeholder="Elige provincia" id="inputState" class="form-control">
-              <option *ngFor="let elemento of tipos" [value]="elemento.id">
+              <option *ngFor="let elemento of tipos" [value]="elemento.description">
                 <span>{{ elemento.description }}</span>
                 </option>
              </select>
@@ -197,8 +198,8 @@
 
 
           <!--Botones -->
-         <button type="reset" class="btn btn-primary">Borrar</button>
-         <button type="submit" class="btn btn-primary">Aceptar</button>
+         <button type="reset" class="btn">Borrar</button>
+         <button type="submit" class="btn btn-primary" >Aceptar</button>
        </form>
 
  </section>

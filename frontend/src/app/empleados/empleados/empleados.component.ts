@@ -68,4 +68,8 @@ export class EmpleadosComponent implements OnInit {
 
   }
 
+  verServicios(empleado: EmpleadoImpl){
+    this.empleadoVerDatos = empleado;
+  }
+
 }

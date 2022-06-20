@@ -1,0 +1,30 @@
+
+
+<div>
+<div id="todo" *ngFor="let ser of empleado.servicios">
+  <br>
+  <div id="nombre"><b>Nombre:  </b>
+    {{ ser.nombre}}
+  </div>
+  <div id="precio" ><b>Precio:  </b>
+    {{ser.precioBase}}<b>€</b>
+  </div>
+  <div>
+    <br>
+    <div class="row" >
+      <a class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="servicioSeleccionado.emit(servicio) " routerLink="/servicios/edicion-servicios/{{servicio.id}}/{{servicio.tipo}}">
+       &nbsp;<fa-icon class=" fa" [icon]="modificar"></fa-icon>
+     </a>
+
+
+     <a class="btn btn-link"  type="button" (click)="borrarServicio(servicio.id)" routerLink="/servicios" >
+       &nbsp;
+       <fa-icon class=" fa" [icon]="trash"></fa-icon>
+       &nbsp;
+     </a>
+  </div>
+<br>
+</div>
+
+
+</div>

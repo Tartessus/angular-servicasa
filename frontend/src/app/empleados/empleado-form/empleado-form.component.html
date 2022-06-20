@@ -12,12 +12,12 @@
  </section>
   <!--Sección del formulario -->
  <section>
-     <form   id="formulario" class="col-md-6">
+     <form   #empleadoForm="ngForm" id="formulario" class="col-md-6">
           <!--Nombre -->
-         <div class="form-row">
+    <div class="form-row">
            <div class="form-group col-md-4">
              <label >Nombre</label>
-             <input type="text" [(ngModel)]="empleado.nombre" class="form-control" id="nombre" placeholder="Nombre"
+             <input type="text"  class="form-control" [(ngModel)]="empleado.nombre" id="nombre" placeholder="Nombre"
              name="nombre"
         required
         minlength="3"
@@ -96,7 +96,7 @@
     </div>
           <!--Email -->
          <div class="form-row align-items-center">
-           <div class="col-md-4">
+           <div class="col-md-6">
              Email
              <label class="sr-only" for="inlineFormInput">Email</label>
              <input type="email" [(ngModel)]="empleado.email" class="form-control mb-2" id="inlineFormInput" placeholder="tu@email.com"
@@ -165,7 +165,7 @@
            <div class="form-group col-md-5">
              <label for="inputState" >Provincia</label>
              <select [(ngModel)]="empleado.provincia" placeholder="Elige provincia" id="inputState" class="form-control">
-              <option *ngFor="let elemento of tipos" [value]="elemento.id">
+              <option *ngFor="let elemento of tipos" [value]="elemento.description">
                 <span>{{ elemento.description }}</span>
                 </option>
              </select>
@@ -174,8 +174,11 @@
          </div>
 
           <!--Botones -->
-         <button type="reset" class="btn btn-primary">Borrar</button>
-         <button type="submit" class="btn btn-primary">Aceptar</button>
+         <button type="reset" class="btn y">Borrar</button>
+         <button type="submit" class="btn btn-primary boton-formulario enviar" (click)= "crear()"
+         [disabled]="!empleadoForm.form.valid" role="button"
+
+ >Aceptar</button>
        </form>
 
  </section>

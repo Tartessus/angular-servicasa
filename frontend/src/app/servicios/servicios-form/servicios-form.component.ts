@@ -19,27 +19,28 @@ import { JardineriaService } from '../service/jardineria.service';
 export class ServiciosFormComponent implements OnInit {
  //public geriatria: GeriatriaImpl = new GeriatriaImpl('', 0, 0, '','',"",0);
   public servicio: ServicioImpl = new ServicioImpl('', 0, 0, '','');
+  public geriatria: GeriatriaImpl = new GeriatriaImpl('', 0, 0, '','',"",0);
+  public jardineria: JardineriaImpl = new JardineriaImpl('', 0, 0, '','',false);
   public servicioForm: FormGroup;
   private host: string = environment.host;
   public urlEndPoint: string = `${this.host}empleados`;
-
+public submit:boolean = false;
   public empleados: EmpleadoImpl[] = [];
 
 
   public tipos: Tipo[] = [
-    { id: 0, description: 'Elige Servicio' },
-    { id: 1, description: 'Jardineria' },
-    { id: 2, description: 'Geriatria' },
+    {  description: 'Elige Servicio' },
+    { description: 'Jardineria' },
+    {  description: 'Geriatria' },
   ];
 
   public titulacion: Titulacion[] = [
-    { idn: 0, description: 'Elige Titulacion' },
-    { idn: 1, description: 'ESO' },
-    { idn: 2, description: 'Modulo Enfermeria' },
-    { idn: 3, description: 'Enfermeria' },
-    { idn: 4, description: 'Modulo Geriatria' },
+    {  description: 'Elige Titulacion' },
+    {  description: 'ESO' },
+    {  description: 'Modulo Enfermeria' },
+    {  description: 'Enfermeria' },
+    {  description: 'Modulo Geriatria' },
   ];
-  submitted: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -48,13 +49,13 @@ export class ServiciosFormComponent implements OnInit {
     private jardineriaService: JardineriaService
   ) {
     this.servicioForm = this.formBuilder.group({
-      type: ['', Validators.required],
-      name: ['', Validators.required],
-      price: ['', Validators.required],
+      type: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      price: ['', [Validators.required]],
       materialPropio: [''],
       experiencia: [''],
       titulacion: [''],
-      empleado:['', Validators.required]
+      empleado:['', [Validators.required]]
     });
   }
 
@@ -71,20 +72,20 @@ export class ServiciosFormComponent implements OnInit {
   }
 
   get form() {
-    return this.servicioForm.controls;
+    return this.servicioForm;
   }
 
   public onSubmit() {
     debugger;
 
-    this.submitted = true;
+    this.submit = true;
 
     const servicioEntity = this.servicioForm.value;
     debugger;
     if (confirm('Realmente quiere añadir un nuevo elemento')) {
       debugger;
       if (!this.servicioForm.invalid) {
-        if (this.servicioForm.value.type == 2) {
+        if (this.servicioForm.value.type == 'Geriatria') {
           const sger: GeriatriaImpl = new GeriatriaImpl(
             servicioEntity.name,
             servicioEntity.price,
@@ -92,7 +93,7 @@ export class ServiciosFormComponent implements OnInit {
             servicioEntity.empleado,
             servicioEntity.url,
             servicioEntity.titulacion,
-            servicioEntity.anosExperiencia
+            servicioEntity.experiencia
           );
           this.geriatriaService.create(sger).subscribe(
             () => {
@@ -137,59 +138,71 @@ export class ServiciosFormComponent implements OnInit {
   }
 
   OnReset() {
-    this.submitted = false;
+    this.submit = false;
     this.servicioForm.reset();
   }
 
   cambiaTipo(event: any) {
     const val = event.currentTarget.value;
-    console.log(this.servicioForm.value.type);
+    //console.log(this.servicioForm.value.type);
     debugger;
-    if (this.servicioForm.value.type == 2) {
+    if (this.servicioForm.value.type == 'Geriatria') {
       this.servicioForm = this.formBuilder.group({
-        type: [this.servicioForm.value.type, Validators.required],
+        type: [this.servicioForm.value.type, [Validators.required]],
         name: [
-          this.servicioForm.value.name,
-          Validators.required,
-          Validators.maxLength(20),
-          Validators.minLength(3),
+          this.servicioForm.value.name,[
+            Validators.required,
+            Validators.maxLength(20),
+            Validators.minLength(3),
+          ]
+
         ],
         price: [
-          this.servicioForm.value.price,
+          this.servicioForm.value.price, [
           Validators.required,
           Validators.min(0),
+        ]
         ],
         materialPropio: [''],
         experiencia: [
-          this.servicioForm.value.experiencia,
+          this.servicioForm.value.experiencia, [
           Validators.required,
           Validators.min(0),
           Validators.max(10),
+          ]
         ],
-        titulacion: [this.servicioForm.value.titulacion, Validators.required],
-        empleado: [this.servicioForm.value.empleado, Validators.required]
+        titulacion: [this.servicioForm.value.titulacion,  [
+          Validators.required] ],
+        empleado: [this.servicioForm.value.empleado,  [
+           Validators.required ]
+          ]
       });
     } else {
       this.servicioForm = this.formBuilder.group({
         type: [this.servicioForm.value.type, Validators.required],
         name: [
-          this.servicioForm.value.name,
+          this.servicioForm.value.name,[
           Validators.required,
           Validators.maxLength(20),
           Validators.minLength(3),
+          ]
         ],
         price: [
-          this.servicioForm.value.price,
+          this.servicioForm.value.price,  [
           Validators.required,
           Validators.min(0),
+          ]
         ],
         materialPropio: [
-          this.servicioForm.value.materialPropio,
+          this.servicioForm.value.materialPropio, [
           Validators.required,
+          ]
         ],
         experiencia: [''],
         titulacion: [''],
-        empleado: [this.servicioForm.value.empleado, Validators.required]
+        empleado: [this.servicioForm.value.empleado, [
+          Validators.required]
+        ]
       });
     }
   }

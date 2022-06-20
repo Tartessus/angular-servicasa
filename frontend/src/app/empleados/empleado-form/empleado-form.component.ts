@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Tipo } from 'src/app/servicios/models/tipo';
 import { EmpleadoImpl } from '../models/empleado-impl';
 import { EmpleadoService } from '../service/empleado.service';
@@ -7,27 +8,38 @@ import { EmpleadoService } from '../service/empleado.service';
 @Component({
   selector: 'app-empleado-form',
   templateUrl: './empleado-form.component.html',
-  styleUrls: ['./empleado-form.component.css']
+  styleUrls: ['./empleado-form.component.css'],
 })
 export class EmpleadoFormComponent implements OnInit {
-
-  public empleado : EmpleadoImpl = new EmpleadoImpl(0,'','','','','','', '', [], "")
+  public empleado: EmpleadoImpl = new EmpleadoImpl(
+    0,
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    [],
+    ''
+  );
   //public servicioForm: FormGroup;
 
-  public tipos : Tipo[] = [
-    { id: 0, description: 'Elige...' },
-    { id: 1, description: 'Madrid' },
-    { id: 2, description: 'Toledo' },
-    { id: 3, description: 'Segovia' },
-    { id: 4, description: 'Guadalajara' }
+  public tipos: Tipo[] = [
+    { description: 'Elige...' },
+    { description: 'Madrid' },
+    { description: 'Toledo' },
+    { description: 'Segovia' },
+    { description: 'Guadalajara' },
   ];
 
   constructor(
     private formBuilder: FormBuilder,
     private empleadoService: EmpleadoService,
+    private valoracionService: EmpleadoService,
+    private router: Router
   ) {
-
- /*   this.servicioForm = this.formBuilder.group({
+    /*   this.servicioForm = this.formBuilder.group({
       id: ['', Validators.required],
       name: ['', Validators.required],
       price: ['', Validators.required],
@@ -37,12 +49,11 @@ export class EmpleadoFormComponent implements OnInit {
     }); */
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  create(): void {
-
-    this.empleadoService.postEmpleado(this.empleado);
-
+  crear(): void {
+    this.empleadoService.create(this.empleado).subscribe((response) => {
+      this.router.navigate(['']);
+    });
   }
 }

@@ -17,12 +17,12 @@
 </div>
 
 <div *ngFor="let empleado of empleados">
-  <app-empleado-item [empleado]="empleado" (empleadoSeleccionado)="verDatos($event)" (empleadoEliminar)="onEmpleadoEliminar($event)"></app-empleado-item>
+  <app-empleado-item [empleado]="empleado" (empleadoSeleccionado)="verDatos($event)" (empleadoEliminar)="onEmpleadoEliminar($event)" (serviciosSeleccionado)="verServicios($event)"></app-empleado-item>
 </div>
 </div>
 
 
-<!-- Modal -->
+<!-- Modal empleado -->
 <div class="modal fade" id="modalEmpleado" tabindex="-1" role="dialog" aria-labelledby="datosEmpleado"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -36,6 +36,32 @@
       <div class="modal-body">
         <app-empleado [empleado]="empleadoVerDatos" ></app-empleado>
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Servicios -->
+<div class="modal fade" id="modalServicios" tabindex="-1" role="dialog" aria-labelledby="datosServicios"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       <div id="nombreE">
+        <h5 class="modal-title"  id="datosServicios">{{empleadoVerDatos.nombre}} {{empleadoVerDatos.apellido}}</h5>
+      </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-servicios [empleado]="empleadoVerDatos" ></app-servicios>
+      </div>
+      <footer id="pie" style= "text-align: right">
+        <a routerLink="/servicios/servicios-form" class="button">+ Añadir Servicio</a> <br><br>
+      </footer>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>

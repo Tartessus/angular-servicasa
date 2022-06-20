@@ -13,6 +13,7 @@ export class EmpleadoItemComponent implements OnInit {
   @Output() empleadoSeleccionado = new EventEmitter<Empleado>();
   @Output() empleadoEliminar = new EventEmitter<EmpleadoImpl>();
   @Output() empleadoEditar = new EventEmitter<EmpleadoImpl>();
+  @Output() serviciosSeleccionado = new EventEmitter<Empleado>();
 
 
   pencil = faPencil;

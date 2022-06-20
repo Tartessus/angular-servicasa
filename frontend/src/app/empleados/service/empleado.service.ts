@@ -10,6 +10,9 @@ import { EmpleadoImpl } from '../models/empleado-impl';
   providedIn: 'root'
 })
 export class EmpleadoService {
+  getServicios(serviceId: any) :Observable<any> {
+    return this.http.get<any>(`${this.urlEndPoint}/${serviceId}`);
+  }
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}empleados`;
 
@@ -44,12 +47,31 @@ export class EmpleadoService {
 
   }
 
-  create(empleado: Empleado): void {
-    console.log(`Se ha creado un nuevo empleado: ${JSON.stringify(empleado)}`);
-  }
   postEmpleado(empleado: EmpleadoImpl){
     this.http.post(this.urlEndPoint, empleado).subscribe();
+    alert('Se ha creado un nuevo empleado');
   }
+
+
+  create(empleado: Empleado): Observable<any> {
+
+   // console.log(`Se ha creado un nuevo empleado: ${JSON.stringify(empleado)}`);
+
+    return this.http.post(`${this.urlEndPoint}`, empleado).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(e);
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error('test'));
+      })
+
+    );
+
+  }
+
   update(empl: EmpleadoImpl, id: number) : Observable<any>  {
     return this.http.put<any>(`${this.urlEndPoint}/${id}`, empl);
   }

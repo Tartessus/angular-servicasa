@@ -1,0 +1,20 @@
+#todo {
+
+  border-color: black;
+  margin-bottom: 1em;
+  padding-right: 2em;
+  padding-left:2em;
+  border-width: 1px;
+   border-style: solid;
+   border-radius: 3ex;
+
+}
+
+#nombre {
+  text-align: left;
+}
+
+
+#precio {
+  text-align: right;
+}

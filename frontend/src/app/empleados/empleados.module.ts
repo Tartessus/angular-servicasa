@@ -12,6 +12,7 @@ import { AuxiliarService } from '../service/auxiliar.service';
 import { EmpleadoComponent } from './empleados/empleado/empleado.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EmpleadoEdicionComponent } from './empleado-edicion/empleado-edicion.component';
+import { ServiciosComponent } from './empleados/servicios/servicios.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { EmpleadoEdicionComponent } from './empleado-edicion/empleado-edicion.co
     EmpleadoItemComponent,
     EmpleadoFormComponent,
     EmpleadoComponent,
-    EmpleadoEdicionComponent
+    EmpleadoEdicionComponent,
+    ServiciosComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { EmpleadoEdicionComponent } from './empleado-edicion/empleado-edicion.co
     ReactiveFormsModule,
     FontAwesomeModule
   ],
+  exports: [ EmpleadosComponent ],
   providers: [AuxiliarService]
 })
 export class EmpleadosModule { }

@@ -4,6 +4,7 @@ import { EmpleadoEdicionComponent } from './empleado-edicion/empleado-edicion.co
 import { EmpleadoFormComponent } from './empleado-form/empleado-form.component';
 import { EmpleadosComponent } from './empleados/empleados.component';
 import { NuevoComponent } from './empleados/nuevo/nuevo.component';
+import { ServiciosComponent } from './empleados/servicios/servicios.component';
 //import { VerComponent } from './empleados/ver/ver.component';
 
 const routes: Routes = [
@@ -14,6 +15,9 @@ const routes: Routes = [
   children: [
     {
       path: 'nuevo', component: NuevoComponent
+    },
+    {
+      path: 'servicios/:id', component: ServiciosComponent
     },
 
   ]
@@ -27,6 +31,7 @@ const routes: Routes = [
     path:'empleado-edicion/:id',
   component: EmpleadoEdicionComponent,
   },
+
 ];
 
 @NgModule({

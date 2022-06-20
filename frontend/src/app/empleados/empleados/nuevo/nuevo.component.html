@@ -54,7 +54,7 @@
            <div class="form-group col-md-5">
              <label for="inputState" >Provincia</label>
              <select [(ngModel)]="empleado.provincia" placeholder="Elige provincia" id="inputState" class="form-control">
-              <option *ngFor="let elemento of tipos" [value]="elemento.id">
+              <option *ngFor="let elemento of tipos" [value]="elemento.description">
                 <span>{{ elemento.description }}</span>
                 </option>
              </select>

@@ -45,10 +45,11 @@ export class EdicionServiciosComponent implements OnInit {
       (service)=>{
         debugger;
         console.log(service);
+
         this.servicioForm = this.formBuilder.group({
           name: [service.nombre, Validators.required],
           price: [service.precioBase, Validators.required],
-          anosExperiencia: [service.anosExperiencia, Validators.required],
+          experiencia: [service.anosExperiencia, Validators.required],
           titulacion: [service.titulacion,Validators.required ],
         });
       },

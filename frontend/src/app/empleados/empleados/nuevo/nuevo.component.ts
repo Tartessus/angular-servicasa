@@ -18,11 +18,11 @@ export class NuevoComponent implements OnInit {
   }
 
   public tipos = [
-    {id: 0, description: 'Elige...'},
-    {id: 1, description: 'Madrid'},
-    {id: 2, description: 'Toledo'},
-    {id: 3, description: 'Segovia'},
-    {id: 4, description: 'Guadalajara'}
+    { description: 'Elige...'},
+    { description: 'Madrid'},
+    { description: 'Toledo'},
+    { description: 'Segovia'},
+    { description: 'Guadalajara'}
   ];
 
   constructor() { }
