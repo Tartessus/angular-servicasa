@@ -13,6 +13,9 @@ import { EmpleadoComponent } from './empleados/empleado/empleado.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EmpleadoEdicionComponent } from './empleado-edicion/empleado-edicion.component';
 import { ServiciosComponent } from './empleados/servicios/servicios.component';
+import { GeriatriaService } from '../servicios/service/geriatria.service';
+import { JardineriaService } from '../servicios/service/jardineria.service';
+import { ServicioService } from '../servicios/service/servicio.service';
 
 
 @NgModule({
@@ -34,6 +37,6 @@ import { ServiciosComponent } from './empleados/servicios/servicios.component';
     FontAwesomeModule
   ],
   exports: [ EmpleadosComponent ],
-  providers: [AuxiliarService]
+  providers: [AuxiliarService, GeriatriaService, JardineriaService, ServicioService]
 })
 export class EmpleadosModule { }

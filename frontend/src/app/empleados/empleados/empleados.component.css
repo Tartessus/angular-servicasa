@@ -27,6 +27,17 @@ header{
 
 }
 
-#nombreE{
-  background-color: ;
+#caja {
+  border-color: black;
+
+
+  border-width: 1px;
+   border-style: solid;
+   border-radius: 3ex;
+
+}
+
+.link{
+  color: rgb(52, 114, 248) !important;
+  cursor: pointer;
 }

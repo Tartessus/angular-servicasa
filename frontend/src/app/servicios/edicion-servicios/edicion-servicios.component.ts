@@ -6,6 +6,8 @@ import { JardineriaImpl } from '../models/jardineria-impl';
 import { GeriatriaService } from '../service/geriatria.service';
 import { JardineriaService } from '../service/jardineria.service';
 import { ServicioEmpleadoService } from '../service/servicio-empleado.service';
+import { Titulacion } from '../models/titulacion';
+
 
 @Component({
   selector: 'app-edicion-servicios',
@@ -13,6 +15,14 @@ import { ServicioEmpleadoService } from '../service/servicio-empleado.service';
   styleUrls: ['./edicion-servicios.component.css']
 })
 export class EdicionServiciosComponent implements OnInit {
+
+  public titulacion: Titulacion[] = [
+    {  description: 'Elige Titulacion' },
+    {  description: 'ESO' },
+    {  description: 'Modulo Enfermeria' },
+    {  description: 'Enfermeria' },
+    {  description: 'Modulo Geriatria' },
+  ];
 
   public servicioForm: FormGroup;
   type: number = 0;

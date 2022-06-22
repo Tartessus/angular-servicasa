@@ -35,7 +35,7 @@ public submit:boolean = false;
   ];
 
   public titulacion: Titulacion[] = [
-    {  description: 'Elige Titulacion' },
+
     {  description: 'ESO' },
     {  description: 'Modulo Enfermeria' },
     {  description: 'Enfermeria' },
@@ -126,12 +126,12 @@ public submit:boolean = false;
 
     //se para aqui si el formulario es invalido
     if (this.servicioForm.invalid) {
-      return;
+      return ;
     }
     //display si hay exito
     alert(
-      'GUARDADO CON EXITO :-)' +
-        JSON.stringify(this.servicioForm.value, null, 4)
+      'GUARDADO CON EXITO :-)' /* +
+        JSON.stringify(this.servicioForm.value, null, 4)*/
     );
 
     console.warn('Your order has been submitted', customerData);

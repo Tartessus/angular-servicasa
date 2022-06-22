@@ -26,7 +26,6 @@ export class EmpleadoFormComponent implements OnInit {
   //public servicioForm: FormGroup;
 
   public tipos: Tipo[] = [
-    { description: 'Elige...' },
     { description: 'Madrid' },
     { description: 'Toledo' },
     { description: 'Segovia' },

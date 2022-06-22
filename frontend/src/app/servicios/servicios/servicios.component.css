@@ -26,3 +26,13 @@ header{
   align-self: flex-end;
 
 }
+
+#caja {
+  border-color: black;
+
+
+  border-width: 1px;
+   border-style: solid;
+   border-radius: 3ex;
+
+}

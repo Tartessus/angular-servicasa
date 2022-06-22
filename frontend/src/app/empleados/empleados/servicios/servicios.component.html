@@ -1,30 +1,53 @@
 
-
 <div>
-<div id="todo" *ngFor="let ser of empleado.servicios">
+<div id="todo" *ngFor="let ser of servicios">
   <br>
   <div id="nombre"><b>Nombre:  </b>
     {{ ser.nombre}}
   </div>
+
+  <div *ngIf="ser.tipo == 1">
+  <div id="nombre" ><b>Uso material propio:  </b>
+    {{ser.materialPropio}}
+    <div ngIf="ser.materialPropio == 0">
+      <div>No</div>
+
+    </div>
+    <div *ngIf="ser.materialPropio == 1">
+      Si
+          </div>
+  </div>
+</div>
+
+<div *ngIf="ser.tipo == 2 ">
+  <div id="nombre" ><b>Años de Experiencia:  </b>
+    {{ser.anosExperiencia}}
+  </div>
+  <div id="nombre" ><b>Titulación:  </b>
+    {{ser.titulacion}}
+  </div>
+</div>
   <div id="precio" ><b>Precio:  </b>
     {{ser.precioBase}}<b>€</b>
   </div>
+
   <div>
     <br>
     <div class="row" >
-      <a class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="servicioSeleccionado.emit(servicio) " routerLink="/servicios/edicion-servicios/{{servicio.id}}/{{servicio.tipo}}">
+      <a class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalModificar"
+      (click)="editarServicio(ser)" class="link">
        &nbsp;<fa-icon class=" fa" [icon]="modificar"></fa-icon>
      </a>
 
 
-     <a class="btn btn-link"  type="button" (click)="borrarServicio(servicio.id)" routerLink="/servicios" >
+     <a class="btn btn-link"  class="link" type="button" (click)="borrarServicio(ser)"  >
        &nbsp;
        <fa-icon class=" fa" [icon]="trash"></fa-icon>
        &nbsp;
      </a>
+     </div>
   </div>
 <br>
 </div>
-
-
 </div>
+

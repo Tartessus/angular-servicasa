@@ -55,7 +55,7 @@
             placeholder="experiencia"
           />
         </div>
-        <div class="form-group col-md-3">
+       <!--  <div class="form-group col-md-3">
           <label>Titulación</label>
           <input
             type="name"
@@ -64,6 +64,18 @@
             id="precio"
             placeholder="Titulación"
           />
+        </div> -->
+        <div class="form-group col-md-3">
+          <label>Titulación</label>
+          <select
+          class="form-control"
+          formControlName="titulacion"
+
+        >
+          <option *ngFor="let titulo of titulacion" [value]="titulo.description">
+            <span>{{ titulo.description }}</span>
+          </option>
+        </select>
         </div>
       </div>
 
@@ -72,8 +84,8 @@
       <button class="btn btn-primary">Aceptar</button>
     </section>
   </form>
- <!----> geri:{{servicioForm && servicioForm.value.type == 2}}
-  jar:{{servicioForm && servicioForm.value.type == 1}}
+ <!-- geri:{{servicioForm && servicioForm.value.type == 2}}
+  jar:{{servicioForm && servicioForm.value.type == 1}} -->
 
 </body>
 

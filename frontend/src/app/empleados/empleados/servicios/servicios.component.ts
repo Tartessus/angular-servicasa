@@ -1,6 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { faEraser, faEye, faFilePen, faPencil, faTrash, faTrashCan, faX } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  faEraser,
+  faEye,
+  faFilePen,
+  faPencil,
+  faTrash,
+  faTrashCan,
+  faX,
+} from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { ServicioImpl } from 'src/app/servicios/models/servicio-impl';
 import { ServicioService } from 'src/app/servicios/service/servicio.service';
@@ -11,18 +19,29 @@ import { EmpleadoService } from '../../service/empleado.service';
 @Component({
   selector: 'app-servicios',
   templateUrl: './servicios.component.html',
-  styleUrls: ['./servicios.component.css']
+  styleUrls: ['./servicios.component.css'],
 })
 export class ServiciosComponent implements OnInit {
-  @Input() empleado: Empleado = new EmpleadoImpl(0,"","","","","","","",[], "");
+  public materialP:any;
+  public servicio: ServicioImpl =new ServicioImpl('',0,0,'','')
+  @Input() empleado: Empleado = new EmpleadoImpl(
+    0,
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    [],
+    ''
+  );
 
-  @Input() servicio: ServicioImpl = new ServicioImpl(' ', 0, 0,'','');
+  @Input() servicios: any[] = [];
 
   @Output() servicioSeleccionado = new EventEmitter<ServicioImpl>();
   @Output() servicioEliminar = new EventEmitter<ServicioImpl>();
   @Output() sevicioEditar = new EventEmitter<ServicioImpl>();
-
-
 
   pencil = faPencil;
   mirar = faEye;
@@ -32,37 +51,39 @@ export class ServiciosComponent implements OnInit {
   x = faX;
   modificar = faFilePen;
 
-
   constructor(
     private activateRoute: ActivatedRoute,
     private empleadoService: EmpleadoService,
     private servicioService: ServicioService,
-  ) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     debugger;
-    console.log(this.empleado);
+    console.log(this.empleado.servicios);
   }
-  public onSubmit() {
+  public onSubmit() {}
 
-
-
-  }
-
-  borrarServicio(servicio: ServicioImpl["id"]): void {
+  borrarServicio(servicio: any): void {
     //    this.negocioService.deleteNegocio(this.negocioItem.urlNegocio);
-    if (confirm('Confirme para eliminar')){
-    this.servicioEliminar.emit(this.servicio);
-
-
+    if (confirm('Confirme para eliminar')) {
+      debugger;
+      let url;
+      if (servicio._links.geriatria) {
+        url = servicio._links.geriatria;
+      } else {
+        url = servicio._links.jardineria;
+      }
+      this.servicioEliminar.emit(url.href);
+    }
   }
-}
-obtenerServicio(){
- // return this.servicioService.getDatosServicio(String.valueOf(this.servicio.tipo));
-}
-
-
-  modificarServicio(servicio: ServicioImpl): void {
-    this.servicioService.patchServicio(servicio).subscribe();
+  obtenerServicio() {
+    // return this.servicioService.getDatosServicio(String.valueOf(this.servicio.tipo));
   }
+
+  editarServicio(ser:any): void {
+    debugger;
+    this.servicioSeleccionado.emit(ser);
+  }
+
 }

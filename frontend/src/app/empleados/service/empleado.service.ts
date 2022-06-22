@@ -10,8 +10,8 @@ import { EmpleadoImpl } from '../models/empleado-impl';
   providedIn: 'root'
 })
 export class EmpleadoService {
-  getServicios(serviceId: any) :Observable<any> {
-    return this.http.get<any>(`${this.urlEndPoint}/${serviceId}`);
+  getServicios(empeadoId: any) :Observable<any> {
+    return this.http.get<any>(`${this.urlEndPoint}/${empeadoId}/servicios`);
   }
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}empleados`;
@@ -38,11 +38,11 @@ export class EmpleadoService {
 
   mapearEmpleados(empleadoApi: any): EmpleadoImpl {
     debugger;
-    const url = empleadoApi._links.self.href;
+    const url = empleadoApi._links.empleado.href;
     const aux = url.split('/');
     const id = parseInt(aux[aux.length-1]);
 
- return new EmpleadoImpl(id,empleadoApi.nombreCompleto, empleadoApi.apellido, empleadoApi.dni, empleadoApi.direccion,  empleadoApi.email, empleadoApi.ciudad, empleadoApi.provincia, empleadoApi.servicios, url)
+ return new EmpleadoImpl(id,empleadoApi.nombreCompleto, empleadoApi.apellido, empleadoApi.dni, empleadoApi.direccion,  empleadoApi.email, empleadoApi.ciudad, empleadoApi.provincia, empleadoApi._links.servicios.href, url)
 
 
   }

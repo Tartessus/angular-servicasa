@@ -7,6 +7,7 @@
   border-width: 1px;
    border-style: solid;
    border-radius: 3ex;
+  width: 380px;
 
 }
 
@@ -17,4 +18,9 @@
 
 #precio {
   text-align: right;
+}
+
+.link{
+  color: rgb(52, 114, 248) !important;
+  cursor: pointer;
 }
