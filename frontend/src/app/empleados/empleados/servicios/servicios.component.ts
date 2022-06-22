@@ -42,6 +42,7 @@ export class ServiciosComponent implements OnInit {
   @Output() servicioSeleccionado = new EventEmitter<ServicioImpl>();
   @Output() servicioEliminar = new EventEmitter<ServicioImpl>();
   @Output() sevicioEditar = new EventEmitter<ServicioImpl>();
+  @Output() servicioMaterial = new EventEmitter<ServicioImpl>();
 
   pencil = faPencil;
   mirar = faEye;
@@ -59,7 +60,7 @@ export class ServiciosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
+
     console.log(this.empleado.servicios);
   }
   public onSubmit() {}
@@ -67,7 +68,7 @@ export class ServiciosComponent implements OnInit {
   borrarServicio(servicio: any): void {
     //    this.negocioService.deleteNegocio(this.negocioItem.urlNegocio);
     if (confirm('Confirme para eliminar')) {
-      debugger;
+
       let url;
       if (servicio._links.geriatria) {
         url = servicio._links.geriatria;
@@ -82,8 +83,16 @@ export class ServiciosComponent implements OnInit {
   }
 
   editarServicio(ser:any): void {
-    debugger;
+
     this.servicioSeleccionado.emit(ser);
   }
 
+  obtenerMaterial(ser:any): void{
+    debugger;
+if(ser.materialPropio == false ){
+this.materialP = "NO";
+  } else {
+    this.materialP ="SI";
+  }
+}
 }

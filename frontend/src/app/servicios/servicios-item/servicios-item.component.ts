@@ -44,7 +44,7 @@ export class ServiciosItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
+
   }
 
   public onSubmit() {

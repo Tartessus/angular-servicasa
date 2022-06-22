@@ -8,12 +8,12 @@
  <section id="PreFormulario">
      <br>
      <h3>Formulario Nuevo Empleado</h3><br>
-     <p>Rellene el formulario con los datos solicitados</p><br>
+     <p>Rellene el formulario con los datos solicitados </p><br>
  </section>
   <!--Sección del formulario -->
  <section>
-     <form   #empleadoForm="ngForm" id="formulario" class="col-md-6">
-          <!--Nombre -->
+     <form   #empleadoForm="ngForm" id="formulario" class="col-md-6" >
+          <!--Nombre (ngSubmit)="submit(empleadoForm)"-->
     <div class="form-row">
            <div class="form-group col-md-4">
              <label >Nombre</label>
@@ -175,7 +175,8 @@
 
           <!--Botones -->
          <button type="reset" class="btn y">Borrar</button>
-         <button type="submit" class="btn btn-primary boton-formulario enviar" (click)= "crear()"
+         <button type="submit" class="btn btn-primary boton-formulario enviar"
+         (click)="create()"
          [disabled]="!empleadoForm.form.valid" role="button"
 
  >Aceptar</button>

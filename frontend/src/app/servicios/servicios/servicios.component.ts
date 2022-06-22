@@ -28,21 +28,21 @@ export class ServiciosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
+
     this.getTodosServicios();
   }
 
   getTodosServicios(): void {
     this.todosServicios = [];
     this.geriatriaService.getGeriatria().subscribe((response) => {
-      debugger;
+
       this.todosServicios.push(
 
         ...this.geriatriaService.extraerGeriatria(response)
       );
 
       this.jardineriaService.getJardineria().subscribe((response) => {
-        debugger;
+
         this.todosServicios.push(
           ...this.jardineriaService.extraerJardineria(response)
         );

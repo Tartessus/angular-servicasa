@@ -26,16 +26,16 @@ export class JardineriaService {
 
   extraerJardineria(respuestaApi: any): JardineriaImpl[] {
     const jardineria: JardineriaImpl[] = [];
-    debugger;
+
     respuestaApi._embedded.jardinerias.forEach((ja: any) => {
       jardineria.push(this.mapearJardineria(ja));
     });
-    debugger;
+
     return jardineria;
   }
 
   mapearJardineria(jardineriaAPI: any): JardineriaImpl {
-    debugger;
+
     const url = jardineriaAPI._links.self.href;
     const aux = url.split('/');
     const id = (aux[aux.length - 1]);
@@ -52,7 +52,7 @@ export class JardineriaService {
   create(servicio: JardineriaImpl):  Observable<any>  {
     const url = `${this.host}jardinerias`;
 
-    debugger;
+
     return this.http.post<any>(url, servicio);
   }
 

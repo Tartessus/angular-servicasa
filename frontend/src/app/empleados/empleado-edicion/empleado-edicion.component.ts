@@ -38,7 +38,7 @@ export class EmpleadoEdicionComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    debugger;
+
     this.id = this.route.snapshot.params['id'];
     this.type = parseInt(this.route.snapshot.params['type']);
     console.log(this.id);
@@ -49,7 +49,7 @@ export class EmpleadoEdicionComponent implements OnInit {
 
     this.empleadoService.findById(this.id).subscribe(
       (service)=>{
-        debugger;
+
         console.log(service);
         this.servicioForm = this.formBuilder.group({
           name: [service.nombre, Validators.required],
@@ -65,12 +65,12 @@ export class EmpleadoEdicionComponent implements OnInit {
   }
 
   public onSubmit() {
-    debugger;
+
 
     const servicioEntity = this.servicioForm.value;
-    debugger;
+
     if (confirm('¿Realmente quiere modificar el elemento elemento?')){
-      debugger;
+
     if (!this.servicioForm.invalid) {
 
         const sger: EmpleadoImpl = new EmpleadoImpl(
@@ -86,7 +86,7 @@ export class EmpleadoEdicionComponent implements OnInit {
           servicioEntity.urlEmpleado );
           this.empleadoService.update(sger,this.id ).subscribe(
             () => {
-              debugger;
+
               console.log('OK');
             },
             (error:any) => {

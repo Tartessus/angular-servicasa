@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EmpleadoImpl } from 'src/app/empleados/models/empleado-impl';
 import { EmpleadoService } from 'src/app/empleados/service/empleado.service';
 import { environment } from 'src/environments/environment';
@@ -42,11 +43,13 @@ public submit:boolean = false;
     {  description: 'Modulo Geriatria' },
   ];
 
+
   constructor(
     private formBuilder: FormBuilder,
     private empleadoService: EmpleadoService,
     private geriatriaService: GeriatriaService,
-    private jardineriaService: JardineriaService
+    private jardineriaService: JardineriaService,
+    private router: Router
   ) {
     this.servicioForm = this.formBuilder.group({
       type: ['', [Validators.required]],
@@ -63,7 +66,7 @@ public submit:boolean = false;
     this.empleadoService.getEmpleados().subscribe(
       (response) => {
         this.empleados = this.empleadoService.extraerEmpleados(response);
-        debugger;
+
       },
       (error) => {
         console.error(error);
@@ -76,14 +79,14 @@ public submit:boolean = false;
   }
 
   public onSubmit() {
-    debugger;
+
 
     this.submit = true;
 
     const servicioEntity = this.servicioForm.value;
-    debugger;
+
     if (confirm('Realmente quiere añadir un nuevo elemento')) {
-      debugger;
+
       if (!this.servicioForm.invalid) {
         if (this.servicioForm.value.type == 'Geriatria') {
           const sger: GeriatriaImpl = new GeriatriaImpl(
@@ -122,6 +125,7 @@ public submit:boolean = false;
           );
         }
       }
+      this.router.navigate(['/servicios']);
     }
 
     //se para aqui si el formulario es invalido
@@ -129,10 +133,10 @@ public submit:boolean = false;
       return ;
     }
     //display si hay exito
-    alert(
-      'GUARDADO CON EXITO :-)' /* +
-        JSON.stringify(this.servicioForm.value, null, 4)*/
-    );
+   // alert(
+   //   'GUARDADO CON EXITO :-)' /* +
+    //    JSON.stringify(this.servicioForm.value, null, 4)*/
+   // );
 
     console.warn('Your order has been submitted', customerData);
   }
@@ -145,7 +149,7 @@ public submit:boolean = false;
   cambiaTipo(event: any) {
     const val = event.currentTarget.value;
     //console.log(this.servicioForm.value.type);
-    debugger;
+
     if (this.servicioForm.value.type == 'Geriatria') {
       this.servicioForm = this.formBuilder.group({
         type: [this.servicioForm.value.type, [Validators.required]],

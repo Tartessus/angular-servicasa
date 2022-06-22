@@ -53,7 +53,7 @@ export class EmpleadoService {
   }
 
 
-  create(empleado: Empleado): Observable<any> {
+ /* create(empleado: Empleado): Observable<any> {
 
    // console.log(`Se ha creado un nuevo empleado: ${JSON.stringify(empleado)}`);
 
@@ -70,7 +70,7 @@ export class EmpleadoService {
 
     );
 
-  }
+  } */
 
   update(empl: EmpleadoImpl, id: number) : Observable<any>  {
     return this.http.put<any>(`${this.urlEndPoint}/${id}`, empl);
@@ -91,5 +91,18 @@ export class EmpleadoService {
     );
   }
 
-
+crearEmpleado(empleado: Empleado): Observable<any>{
+  debugger;
+  return this.http.post(`${this.urlEndPoint}`, empleado).pipe(
+    catchError((e) =>{
+      if(e.status ===400) {
+        return throwError(()=> new Error (e));
+      }
+      if(e.roor.mensaje){
+        console.error(e.error.mensaje);
+      }
+      return throwError(()=> new Error(e));
+    })
+    );
+}
 }

@@ -50,7 +50,7 @@ export class GeriatriaService {
   create(servicio: GeriatriaImpl):  Observable<any>  {
     const url = `${this.host}geriatrias`;
 
-    debugger;
+
     return this.http.post<any>(url, servicio);
   }
   update(sger: GeriatriaImpl, id: number) : Observable<any>  {

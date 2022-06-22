@@ -37,6 +37,7 @@ export class EmpleadosComponent implements OnInit {
     ''
   );
   servicios: any[] = [];
+  materialP: any;
 
   constructor(
     private servicioService: ServicioService,
@@ -50,7 +51,7 @@ export class EmpleadosComponent implements OnInit {
   ngOnInit(): void {
     this.empleadoService.getEmpleados().subscribe((response) => {
       this.empleados = this.empleadoService.extraerEmpleados(response);
-      debugger;
+
     });
     this.getTodosEmpleados();
   }
@@ -67,7 +68,7 @@ export class EmpleadosComponent implements OnInit {
   }
 
   verDatos(empleado: Empleado): void {
-    debugger;
+
     this.empleadoVerDatos = empleado;
   }
 
@@ -105,18 +106,18 @@ export class EmpleadosComponent implements OnInit {
   }*/
 
   verServicios(empleado: EmpleadoImpl) {
-    debugger;
+
     this.empleadoVerDatos = empleado;
     this.servicios = [];
 
     this.empleadoService.getServicios(empleado.id).subscribe(
       (servicios) => {
-        debugger;
+
         if (servicios._embedded.geriatrias) {
 
 
           servicios._embedded.geriatrias.forEach((s: any) => {
-            debugger;
+
             s.id=this.getServiceId(s._links.geriatria.href);
             s.tipo = 2;
             this.servicios.push(s);
@@ -124,7 +125,7 @@ export class EmpleadosComponent implements OnInit {
         }
         if (servicios._embedded.jardinerias) {
           servicios._embedded.jardinerias.forEach((s: any) => {
-            debugger;
+debugger;
             s.id= this.getServiceId(s._links.jardineria.href);
             s.tipo = 1;
             this.servicios.push(s);
@@ -139,7 +140,7 @@ export class EmpleadosComponent implements OnInit {
   }
 
   getServiceId(url: string):number{
-    debugger
+
     const aux = url.split('/');
     const id = parseInt(aux[aux.length-1]);
 
@@ -149,15 +150,23 @@ export class EmpleadosComponent implements OnInit {
   onServicioEliminar(url: any) {
 
 
-    debugger;
+
     this.servicioService.deleteServicio(url).subscribe(
       (response) => {
-        debugger;
+
       this.verServicios(this.empleadoVerDatos);
       },
       (error)=> {
         console.log(error);
       });
   }
+
+onServicioMaterial(ser:any){
+  if(ser.materialPropio == false ){
+    this.materialP = "NO";
+      } else {
+        this.materialP ="SI";
+      }
+}
 
 }

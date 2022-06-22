@@ -59,7 +59,8 @@
       <div class="modal-body">
         <app-servicios [empleado]="empleadoVerDatos" [servicios]="servicios"
         (servicioEliminar)="onServicioEliminar($event)"
-         (servicioSeleccionado)="closeModal($event)"></app-servicios>
+         (servicioSeleccionado)="closeModal($event)"
+         (servicioMaterial)="onServicioMaterial($event)"></app-servicios>
       </div>
       <footer id="pie" style= "text-align: right">
         <a (click)="addServicio()" class="button link">+ Añadir Servicio</a> <br><br>

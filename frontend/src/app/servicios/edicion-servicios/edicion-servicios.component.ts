@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, RouteConfigLoadEnd } from '@angular/router';
+import { ActivatedRoute, RouteConfigLoadEnd, Router } from '@angular/router';
 import { GeriatriaImpl } from '../models/geriatria-impl';
 import { JardineriaImpl } from '../models/jardineria-impl';
 import { GeriatriaService } from '../service/geriatria.service';
@@ -31,7 +31,8 @@ export class EdicionServiciosComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private geriatriaService: GeriatriaService,
-    private jardineriaService: JardineriaService) {
+    private jardineriaService: JardineriaService,
+    private router: Router) {
       this.servicioForm = this.formBuilder.group({
         name: ['', Validators.required],
         price: ['', Validators.required],
@@ -53,7 +54,7 @@ export class EdicionServiciosComponent implements OnInit {
 
     this.geriatriaService.findById(this.id).subscribe(
       (service)=>{
-        debugger;
+
         console.log(service);
 
         this.servicioForm = this.formBuilder.group({
@@ -71,7 +72,7 @@ export class EdicionServiciosComponent implements OnInit {
 
       this.jardineriaService.findById(this.id).subscribe(
         (service)=>{
-          debugger;
+
           console.log(service);
 
           this.servicioForm = this.formBuilder.group({
@@ -87,12 +88,12 @@ export class EdicionServiciosComponent implements OnInit {
   }
 
   public onSubmit() {
-    debugger;
+
 
     const servicioEntity = this.servicioForm.value;
-    debugger;
+
     if (confirm('¿Realmente quiere modificar el elemento elemento?')){
-      debugger;
+
     if (!this.servicioForm.invalid) {
       if (this.type == 2) {
         const sger: GeriatriaImpl = new GeriatriaImpl(
@@ -123,7 +124,7 @@ export class EdicionServiciosComponent implements OnInit {
         );
         this.jardineriaService.update(sjar, this.id).subscribe(
           () => {
-            debugger;
+
             console.log('OK');
           },
           (error) => {
@@ -132,6 +133,7 @@ export class EdicionServiciosComponent implements OnInit {
         );
       }
     }
+    this.router.navigate(['/servicios']);
     }
   }
 

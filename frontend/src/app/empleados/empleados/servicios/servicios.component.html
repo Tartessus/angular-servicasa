@@ -6,16 +6,18 @@
     {{ ser.nombre}}
   </div>
 
+
   <div *ngIf="ser.tipo == 1">
-  <div id="nombre" ><b>Uso material propio:  </b>
-    {{ser.materialPropio}}
-    <div ngIf="ser.materialPropio == 0">
+  <div id="nombre" (click)="obtenerMaterial(ser)" ><b>Uso material propio:  </b>
+    <span *ngIf="ser.materialPropio">SI</span>
+    <span *ngIf="!ser.materialPropio">NO</span>
+   <!--  <div ngIf="ser.materialPropio == 0">
       <div>No</div>
 
     </div>
     <div *ngIf="ser.materialPropio == 1">
       Si
-          </div>
+          </div>-->
   </div>
 </div>
 
@@ -27,6 +29,7 @@
     {{ser.titulacion}}
   </div>
 </div>
+
   <div id="precio" ><b>Precio:  </b>
     {{ser.precioBase}}<b>€</b>
   </div>
