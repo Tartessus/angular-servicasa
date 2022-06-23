@@ -35,7 +35,7 @@ private urlEndPoint: string = `${this.host}servicios`;
   }
 
   create(servicio: ServicioImpl): void {
-    console.log(`Se ha creado el servicio: ${JSON.stringify(servicio)}`);
+  //  console.log(`Se ha creado el servicio: ${JSON.stringify(servicio)}`);
   }
 
   getServiciosPagina(pagina: number): Observable<any> {

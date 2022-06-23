@@ -1,4 +1,5 @@
-<body>
+<body >
+  <div>
   <h3>SERVICIOS</h3>
   <br />
   <form [formGroup]="servicioForm" (ngSubmit)="onSubmit()">
@@ -30,23 +31,25 @@
        <div *ngIf="servicio.nombre" class="invalid-feedback">
 
        </div>
+      </div>
 
-    </div>
-    <div class="form-group col-md-3">
-      <label>Precio</label>
-      <input
-        type="number"
-        formControlName="price"
-        class="form-control"
-        placeholder="En €"[ngClass]="{'is-invalid': servicio.precioBase}"
-        />
-
-        <div *ngIf="servicio.precioBase" class="invalid-feedback">
-
-        </div>
-    </div>
     <div class="form-group col-md-3" *ngIf="servicioForm && servicioForm.value.type == 'Jardineria'">
       <section>
+
+      <div class="form-group">
+        <label>Precio/metro</label>
+        <input
+          type="number"
+          formControlName="price"
+          class="form-control"
+          placeholder="En €"[ngClass]="{'is-invalid': servicio.precioBase}"
+          />
+
+          <div *ngIf="servicio.precioBase" class="invalid-feedback">
+
+          </div>
+      </div>
+
         <div class="">
           <label for="materialPropio">Material Propio &nbsp; </label>
           <section class="form-control">
@@ -62,6 +65,7 @@
             /><i> NO </i>
           </section>
         </div>
+        <br>
         <div class="form-group ">
           <label> Empleado </label>
            <select
@@ -77,6 +81,21 @@
       </section></div>
 
       <div *ngIf="servicioForm && servicioForm.value.type == 'Geriatria'">
+
+        <div class="form-group col-md-3">
+          <label>Precio/hora</label>
+          <input
+            type="number"
+            formControlName="price"
+            class="form-control"
+            placeholder="En €"[ngClass]="{'is-invalid': servicio.precioBase}"
+            />
+
+            <div *ngIf="servicio.precioBase" class="invalid-feedback">
+
+            </div>
+        </div>
+
         <div class="form-group col-md-3">
           <label>Años Experiencia</label>
           <input
@@ -127,13 +146,13 @@
       </div>
 
     <section #botones>
-      <button type="reset" class="btn">Borrar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="reset" class="btn">Cancelar</button>&nbsp;&nbsp;&nbsp;&nbsp;
       <button class="btn btn-primary" >Aceptar</button>
     </section>
   </form>
  <!--  geri:{{servicioForm && servicioForm.value.type == 2}}
   jar:{{servicioForm && servicioForm.value.type == 1}} -->
-
+</div>
 </body>
 
 

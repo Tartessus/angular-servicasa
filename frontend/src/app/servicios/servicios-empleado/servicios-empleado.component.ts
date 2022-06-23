@@ -38,11 +38,14 @@ export class ServiciosEmpleadoComponent implements OnInit {
 
   cargarServicio(): any {
 
-    console.log('id = ', this.activateRoute.snapshot.params['id']);
+  //  console.log('id = ', this.activateRoute.snapshot.params['id']);
    this.serviciosEmpleadoService.getServiciosEmpleado(this.activateRoute.snapshot.params['id']).subscribe(
     (user)=>{
-      console.log(user);
+     // console.log(user);
     },
-    (error)=> {console.error(error);}   );
+    (error)=>  {
+    //  console.error(error);
+    }
+     );
   }
 }

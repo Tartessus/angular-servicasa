@@ -64,7 +64,7 @@ export class JardineriaService {
     return this.http.delete<JardineriaImpl>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {
         if (e.error.mensaje) {
-          console.error(e.error.mensaje);
+        //  console.error(e.error.mensaje);
         }
         return throwError(() => new Error(e));
       })

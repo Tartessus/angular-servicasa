@@ -2,15 +2,15 @@
 <div>
 <div id="todo" *ngFor="let ser of servicios">
   <br>
-  <div id="nombre"><b>Nombre:  </b>
-    {{ ser.nombre}}
+  <div id="nombre">
+   <b> {{ ser.nombre}} </b>
   </div>
 
 
   <div *ngIf="ser.tipo == 1">
-  <div id="nombre" (click)="obtenerMaterial(ser)" ><b>Uso material propio:  </b>
-    <span *ngIf="ser.materialPropio">SI</span>
-    <span *ngIf="!ser.materialPropio">NO</span>
+  <div id="nombre" (click)="obtenerMaterial(ser)" >Uso material propio:
+    <span *ngIf="ser.materialPropio"><b> SI </b></span>
+    <span *ngIf="!ser.materialPropio"><b> NO </b></span>
    <!--  <div ngIf="ser.materialPropio == 0">
       <div>No</div>
 
@@ -19,20 +19,28 @@
       Si
           </div>-->
   </div>
+
+  <div id="precio" >Precio:
+    <b>  {{ser.precioBase}}</b><b>€/metro</b>
+  </div>
+
 </div>
 
 <div *ngIf="ser.tipo == 2 ">
-  <div id="nombre" ><b>Años de Experiencia:  </b>
-    {{ser.anosExperiencia}}
+  <div id="nombre" >Años de Experiencia:
+    <b>  {{ser.anosExperiencia}} </b>
   </div>
-  <div id="nombre" ><b>Titulación:  </b>
-    {{ser.titulacion}}
+  <div id="nombre" >Titulación:
+    <b>  {{ser.titulacion}}  </b>
   </div>
+
+  <div id="precio" >
+    <b>  {{ser.precioBase}}€/hora</b>
+  </div>
+
 </div>
 
-  <div id="precio" ><b>Precio:  </b>
-    {{ser.precioBase}}<b>€</b>
-  </div>
+
 
   <div>
     <br>

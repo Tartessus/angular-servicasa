@@ -69,7 +69,7 @@ public submit:boolean = false;
 
       },
       (error) => {
-        console.error(error);
+     //   console.error(error);
       }
     );
   }
@@ -100,10 +100,10 @@ public submit:boolean = false;
           );
           this.geriatriaService.create(sger).subscribe(
             () => {
-              console.log('OK');
+            //  console.log('OK');
             },
             (error: any) => {
-              console.error(error);
+            //  console.error(error);
             }
           );
         } else {
@@ -117,10 +117,10 @@ public submit:boolean = false;
           );
           this.jardineriaService.create(sjar).subscribe(
             () => {
-              console.log('OK');
+             // console.log('OK');
             },
             (error) => {
-              console.error(error);
+          //    console.error(error);
             }
           );
         }

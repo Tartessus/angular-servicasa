@@ -46,8 +46,8 @@ export class EdicionServiciosComponent implements OnInit {
     debugger;
     this.id = this.route.snapshot.params['id'];
     this.type = parseInt(this.route.snapshot.params['type']);
-    console.log(this.id);
-    console.log(this.type);
+   // console.log(this.id);
+   // console.log(this.type);
 
     if(this.type === 2){
 
@@ -55,17 +55,27 @@ export class EdicionServiciosComponent implements OnInit {
     this.geriatriaService.findById(this.id).subscribe(
       (service)=>{
 
-        console.log(service);
+      //  console.log(service);
 
         this.servicioForm = this.formBuilder.group({
-          name: [service.nombre, Validators.required],
-          price: [service.precioBase, Validators.required],
-          experiencia: [service.anosExperiencia, Validators.required],
-          titulacion: [service.titulacion,Validators.required ],
+          name: [service.nombre, [ Validators.required,  Validators.maxLength(20),
+            Validators.minLength(3),]],
+          price: [service.precioBase,  [
+            Validators.required,
+            Validators.min(0),
+            ]
+          ],
+          experiencia: [service.anosExperiencia, [
+            Validators.required,
+            Validators.min(0),
+            Validators.max(10),
+            ]],
+          titulacion: [service.titulacion,[
+            Validators.required] ],
         });
       },
      (error)=> {
-      console.error(error);
+   //   console.error(error);
      });
     }else{
 
@@ -73,16 +83,28 @@ export class EdicionServiciosComponent implements OnInit {
       this.jardineriaService.findById(this.id).subscribe(
         (service)=>{
 
-          console.log(service);
+        //  console.log(service);
 
           this.servicioForm = this.formBuilder.group({
-            name: [service.nombre, Validators.required],
-            price: [service.precioBase, Validators.required],
-            materialPropio: [service.materialPropio.toString() , Validators.required],
+            name: [service.nombre,[
+              Validators.required,
+              Validators.maxLength(20),
+              Validators.minLength(3),
+              ]
+            ],
+            price: [service.precioBase,  [
+              Validators.required,
+              Validators.min(0),
+              ]
+            ],
+            materialPropio: [service.materialPropio.toString() , [
+              Validators.required,
+              ]
+            ],
           });
         },
        (error)=> {
-        console.error(error);
+      //  console.error(error);
        });
     }
   }
@@ -106,11 +128,11 @@ export class EdicionServiciosComponent implements OnInit {
           servicioEntity.anosExperiencia );
           this.geriatriaService.update(sger,this.id ).subscribe(
             () => {
-              debugger;
-              console.log('OK');
+            //  debugger;
+            //  console.log('OK');
             },
             (error:any) => {
-              console.error(error);
+            //  console.error(error);
             }
           );
       } else {
@@ -125,10 +147,10 @@ export class EdicionServiciosComponent implements OnInit {
         this.jardineriaService.update(sjar, this.id).subscribe(
           () => {
 
-            console.log('OK');
+        //    console.log('OK');
           },
           (error) => {
-            console.error(error);
+         //   console.error(error);
           }
         );
       }
