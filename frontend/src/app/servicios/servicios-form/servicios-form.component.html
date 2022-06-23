@@ -3,7 +3,7 @@
   <h3>SERVICIOS</h3>
   <br />
   <form [formGroup]="servicioForm" (ngSubmit)="onSubmit()">
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-2">
       <select
         class="form-control"
         formControlName="type"
@@ -16,7 +16,7 @@
     </div>
 
     <div class=" form-group col-md-3">
-      <label>Nombre</label>
+      <p>Nombre</p>
       <input
       required
       minlength="4"
