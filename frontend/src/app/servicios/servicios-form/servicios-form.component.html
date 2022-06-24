@@ -28,9 +28,6 @@
         [ngClass]="{'is-invalid': servicio.nombre}"
        />
 
-       <div *ngIf="servicio.nombre" class="invalid-feedback">
-
-       </div>
       </div>
 
     <div class="form-group col-md-3" *ngIf="servicioForm && servicioForm.value.type == 'Jardineria'">
@@ -89,9 +86,7 @@
             placeholder="En €"[ngClass]="{'is-invalid': servicio.precioBase}"
             />
 
-            <div *ngIf="servicio.precioBase" class="invalid-feedback">
 
-            </div>
         </div>
 
         <div class="form-group col-md-3">
@@ -103,9 +98,7 @@
             placeholder="experiencia"
             [ngClass]="{'is-invalid': geriatria.anosExperiencia}"
             />
-            <div *ngIf="geriatria.anosExperiencia < 0" class="invalid-feedback">
-              Debe ser positivo
-          </div>
+
 
           </div>
 

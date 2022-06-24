@@ -140,7 +140,7 @@ public submit:boolean = false;
     //    JSON.stringify(this.servicioForm.value, null, 4)*/
    // );
 
-    console.warn('Your order has been submitted', customerData);
+   // console.warn('Your order has been submitted', customerData);
   }
 
   OnReset() {
@@ -167,7 +167,7 @@ public submit:boolean = false;
           this.servicioForm.value.price, [
           Validators.required,
           Validators.min(0),
-          this.precioLimite,
+        //  this.precioLimite,
         ]
         ],
         materialPropio: [''],
@@ -198,7 +198,7 @@ public submit:boolean = false;
           this.servicioForm.value.price,  [
           Validators.required,
           Validators.min(0),
-          this.precioLimite,
+        //  this.precioLimite,
           ]
         ],
         materialPropio: [
@@ -215,7 +215,7 @@ public submit:boolean = false;
     }
   }
 
-  private precioLimite(control: AbstractControl) {
+ /* private precioLimite(control: AbstractControl) {
     const precio = control.value;
     let error = null;
     if (this.servicio.precioBase < 0) {
@@ -223,7 +223,7 @@ public submit:boolean = false;
     }
 
     return error;
-  }
+  } */
 
 }
 
