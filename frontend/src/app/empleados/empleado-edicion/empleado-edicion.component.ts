@@ -41,8 +41,8 @@ export class EmpleadoEdicionComponent implements OnInit {
 
     this.id = this.route.snapshot.params['id'];
     this.type = parseInt(this.route.snapshot.params['type']);
-    console.log(this.id);
-    console.log(this.type);
+    //console.log(this.id);
+   // console.log(this.type);
 
 
 
@@ -50,7 +50,7 @@ export class EmpleadoEdicionComponent implements OnInit {
     this.empleadoService.findById(this.id).subscribe(
       (service)=>{
 
-        console.log(service);
+     //   console.log(service);
         this.servicioForm = this.formBuilder.group({
           name: [service.nombre, Validators.required],
           price: [service.precioBase, Validators.required],
@@ -59,7 +59,7 @@ export class EmpleadoEdicionComponent implements OnInit {
         });
       },
      (error)=> {
-      console.error(error);
+    //  console.error(error);
      });
 
   }
@@ -87,10 +87,10 @@ export class EmpleadoEdicionComponent implements OnInit {
           this.empleadoService.update(sger,this.id ).subscribe(
             () => {
 
-              console.log('OK');
+           //   console.log('OK');
             },
             (error:any) => {
-              console.error(error);
+          //    console.error(error);
             }
 
         );

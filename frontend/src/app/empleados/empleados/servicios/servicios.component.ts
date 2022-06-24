@@ -61,7 +61,7 @@ export class ServiciosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.empleado.servicios);
+ //   console.log(this.empleado.servicios);
   }
   public onSubmit() {}
 

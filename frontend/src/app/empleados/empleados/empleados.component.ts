@@ -73,7 +73,7 @@ export class EmpleadosComponent implements OnInit {
   }
 
   onEmpleadoEliminar(empleado: EmpleadoImpl): void {
-    console.log(`He eliminado a ${empleado.nombre}`);
+ //   console.log(`He eliminado a ${empleado.nombre}`);
     this.empleadoService.deleteEmpleado(empleado.id).subscribe((response) => {
       //  this.router.navigate(['empleados']);
       //this.empleados = this.empleados.filter(p => empleado !== p)
@@ -133,7 +133,7 @@ debugger;
         }
       },
       (error) => {
-        console.error(error);
+     //   console.error(error);
       }
     )
 
@@ -157,7 +157,7 @@ debugger;
       this.verServicios(this.empleadoVerDatos);
       },
       (error)=> {
-        console.log(error);
+      //  console.log(error);
       });
   }
 

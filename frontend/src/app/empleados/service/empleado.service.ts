@@ -84,7 +84,7 @@ export class EmpleadoService {
     return this.http.delete<Empleado>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {
         if (e.error.mensaje) {
-          console.error(e.error.mensaje);
+        //  console.error(e.error.mensaje);
         }
         return throwError(() => new Error(e));
       })
@@ -99,7 +99,7 @@ crearEmpleado(empleado: Empleado): Observable<any>{
         return throwError(()=> new Error (e));
       }
       if(e.roor.mensaje){
-        console.error(e.error.mensaje);
+      //  console.error(e.error.mensaje);
       }
       return throwError(()=> new Error(e));
     })

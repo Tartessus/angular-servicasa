@@ -51,8 +51,8 @@ export class EmpleadoFormComponent implements OnInit {
   ngOnInit(): void {}
 
   create(): void {
-    debugger;
-    console.log(this.empleado);
+   // debugger;
+  //  console.log(this.empleado);
     this.empleadoService.crearEmpleado(this.empleado).subscribe();
     this.router.navigate(['/empleados']);
 
