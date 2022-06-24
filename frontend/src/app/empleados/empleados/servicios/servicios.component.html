@@ -8,6 +8,11 @@
 
 
   <div *ngIf="ser.tipo == 1">
+
+    <div id="nombre">
+      <b> {{ ser.nombre}} metro cuadrado </b>
+     </div>
+
   <div id="nombre" (click)="obtenerMaterial(ser)" >Uso material propio:
     <span *ngIf="ser.materialPropio"><b> SI </b></span>
     <span *ngIf="!ser.materialPropio"><b> NO </b></span>
@@ -27,6 +32,11 @@
 </div>
 
 <div *ngIf="ser.tipo == 2 ">
+
+  <div id="nombre">
+    <b> {{ ser.nombre}} hora </b>
+   </div>
+
   <div id="nombre" >Años de Experiencia:
     <b>  {{ser.anosExperiencia}} </b>
   </div>
