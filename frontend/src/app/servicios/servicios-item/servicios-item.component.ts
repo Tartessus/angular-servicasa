@@ -9,6 +9,7 @@ import {
   faTrashCan,
   faX,
 } from '@fortawesome/free-solid-svg-icons';
+import { EmpleadoImpl } from 'src/app/empleados/models/empleado-impl';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { GeriatriaImpl } from '../models/geriatria-impl';
 import { Servicio } from '../models/servicio';
@@ -26,7 +27,7 @@ export class ServiciosItemComponent implements OnInit {
   @Output() servicioSeleccionado = new EventEmitter<ServicioImpl>();
   @Output() servicioEliminar = new EventEmitter<ServicioImpl>();
   @Output() sevicioEditar = new EventEmitter<ServicioImpl>();
-
+public empleados: EmpleadoImpl[] = [];
 
   pencil = faPencil;
   mirar = faEye;

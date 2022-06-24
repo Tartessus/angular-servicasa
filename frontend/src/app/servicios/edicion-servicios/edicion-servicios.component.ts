@@ -114,7 +114,7 @@ export class EdicionServiciosComponent implements OnInit {
 
     const servicioEntity = this.servicioForm.value;
 
-    if (confirm('¿Realmente quiere modificar el elemento elemento?')){
+  //  if (confirm('¿Realmente quiere modificar el elemento elemento?')){
 
     if (!this.servicioForm.invalid) {
       if (this.type == 2) {
@@ -154,9 +154,10 @@ export class EdicionServiciosComponent implements OnInit {
           }
         );
       }
+      this.router.navigate(['/servicios']);
     }
-    this.router.navigate(['/servicios']);
-    }
+
+  //  }
   }
 
 

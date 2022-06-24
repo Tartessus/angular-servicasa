@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmpleadoImpl } from 'src/app/empleados/models/empleado-impl';
 import { EmpleadoService } from 'src/app/empleados/service/empleado.service';
@@ -44,6 +44,7 @@ public submit:boolean = false;
   ];
 
 
+
   constructor(
     private formBuilder: FormBuilder,
     private empleadoService: EmpleadoService,
@@ -85,7 +86,7 @@ public submit:boolean = false;
 
     const servicioEntity = this.servicioForm.value;
 
-    if (confirm('Realmente quiere añadir un nuevo elemento')) {
+  //  if (confirm('Realmente quiere añadir un nuevo elemento')) {
 
       if (!this.servicioForm.invalid) {
         if (this.servicioForm.value.type == 'Geriatria') {
@@ -124,9 +125,10 @@ public submit:boolean = false;
             }
           );
         }
+        this.router.navigate(['/servicios']);
       }
-      this.router.navigate(['/servicios']);
-    }
+
+   // }
 
     //se para aqui si el formulario es invalido
     if (this.servicioForm.invalid) {
@@ -165,11 +167,12 @@ public submit:boolean = false;
           this.servicioForm.value.price, [
           Validators.required,
           Validators.min(0),
+          this.precioLimite,
         ]
         ],
         materialPropio: [''],
         experiencia: [
-          this.servicioForm.value.experiencia, [
+          '', [
           Validators.required,
           Validators.min(0),
           Validators.max(10),
@@ -211,7 +214,20 @@ public submit:boolean = false;
     }
   }
 
+  private precioLimite(control: AbstractControl) {
+    const precio = control.value;
+    let error = null;
+    if (this.servicio.precioBase < 0) {
+      error = { error, valor: "el valor tiene q ser positivo" };
+    }
+
+    return error;
+  }
+
 }
+
+
+
 function customerData(arg0: string, customerData: any) {
   throw new Error('Function not implemented.');
 }

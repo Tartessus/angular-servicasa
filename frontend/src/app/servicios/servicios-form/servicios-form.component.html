@@ -45,9 +45,7 @@
           placeholder="En €"[ngClass]="{'is-invalid': servicio.precioBase}"
           />
 
-          <div *ngIf="servicio.precioBase" class="invalid-feedback">
 
-          </div>
       </div>
 
         <div class="">
@@ -105,10 +103,10 @@
             placeholder="experiencia"
             [ngClass]="{'is-invalid': geriatria.anosExperiencia}"
             />
+            <div *ngIf="geriatria.anosExperiencia < 0" class="invalid-feedback">
+              Debe ser positivo
+          </div>
 
-            <div *ngIf="geriatria.anosExperiencia" class="invalid-feedback">
-
-            </div>
           </div>
 
 
@@ -151,7 +149,9 @@
     </section>
   </form>
  <!--  geri:{{servicioForm && servicioForm.value.type == 2}}
-  jar:{{servicioForm && servicioForm.value.type == 1}} -->
+  jar:{{servicioForm && servicioForm.value.type == 1}}
+
+[disabled]="servicioForm.invalid"-->
 </div>
 </body>
 
