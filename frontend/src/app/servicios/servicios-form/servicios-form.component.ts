@@ -198,6 +198,7 @@ public submit:boolean = false;
           this.servicioForm.value.price,  [
           Validators.required,
           Validators.min(0),
+          this.precioLimite,
           ]
         ],
         materialPropio: [
